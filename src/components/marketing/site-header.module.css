@@ -25,12 +25,12 @@
 
 .crown {
   position: absolute;
-  width: 0.65em;
-  height: 0.47em;
-  top: -0.34em;
-  left: 0.17em;
+  width: 0.48em;
+  height: 0.45em;
+  top: -0.4em;
+  left: 0.18em;
   color: var(--gor-ink);
-  transform: rotate(-9deg);
+  transform: rotate(-5deg);
 }
 
 .brandText {
@@ -38,49 +38,51 @@
   flex-direction: column;
   align-items: flex-start;
   min-width: 0;
+  padding-top: 0.28rem;
 }
 
 .brandWord {
-  font-family: var(--gor-font-story);
-  font-size: clamp(0.73rem, 1vw, 0.92rem);
+  font-family: var(--gor-font-display);
+  font-size: clamp(0.66rem, 0.7vw, 0.8rem);
   font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.055em;
+  letter-spacing: 0.035em;
   text-transform: uppercase;
   color: var(--gor-ink);
-  margin-left: 2rem;
+  margin-left: clamp(1.5rem, 1.65vw, 2.1rem);
 }
 
 .brandName {
   font-family: var(--gor-font-ornament);
-  font-size: clamp(1.8rem, 2.2vw, 2.55rem);
-  font-weight: 400;
-  line-height: 0.92;
-  color: #8d1915;
-  letter-spacing: -0.085em;
+  font-size: clamp(1.95rem, 2.45vw, 2.95rem);
+  font-weight: 900;
+  line-height: 0.9;
+  color: #8b1712;
+  letter-spacing: -0.035em;
   white-space: nowrap;
-  text-shadow: 0.5px 0.5px #56130f;
-  transform: rotate(-1deg) scaleX(0.92);
+  text-shadow: 0.35px 0.55px #4e100d;
+  transform: rotate(-0.4deg) scaleX(0.76);
   transform-origin: left center;
 }
 
 .brandInitial {
   position: relative;
   display: inline-block;
-  font-size: 1.28em;
-  line-height: 0.65;
-  margin-right: -0.085em;
-  transform: translateY(0.075em);
+  font-size: 1.42em;
+  line-height: 0.72;
+  margin-right: 0.01em;
+  transform: translateY(0.02em);
 }
 
 .brandTag {
-  color: var(--gor-ink-muted);
+  color: var(--gor-ink);
   font-family: var(--gor-font-body);
-  font-size: clamp(0.5rem, 0.55vw, 0.6rem);
+  font-size: clamp(0.45rem, 0.47vw, 0.54rem);
   font-weight: 600;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  margin-top: 0.38rem;
+  margin-top: 0.22rem;
+  margin-left: 0;
   white-space: nowrap;
 }
 
@@ -211,37 +213,51 @@
     content: "";
     position: absolute;
     z-index: -1;
-    top: -0.1rem;
+    top: 0;
     left: 20.3%;
     width: 65.2%;
-    height: clamp(5rem, 5.8vw, 8rem);
-    background: url("/images/header-parchment-v1.webp") center center / 100% 160% no-repeat;
+    height: clamp(5.4rem, 6.1vw, 8.4rem);
+    background: url("/images/header-parchment-v1.webp") center 42% / 100% 168% no-repeat;
     filter: drop-shadow(0 3px 3px #55392055);
     pointer-events: none;
   }
 
   .inner {
-    grid-template-columns: minmax(0, 12rem) minmax(0, 1fr) auto;
+    position: relative;
+    grid-template-columns: minmax(13.5rem, 17rem) minmax(0, 1fr) auto;
     width: 65.2%;
-    min-height: clamp(4.7rem, 5.3vw, 7.1rem);
+    min-height: clamp(4.9rem, 5.5vw, 7.3rem);
     margin-left: 20.3%;
     margin-right: 0;
-    padding: 0 clamp(2rem, 2.1vw, 3.2rem) 0 clamp(1.15rem, 1.2vw, 2rem);
-    gap: clamp(0.5rem, 0.8vw, 1rem);
+    padding:
+      clamp(0.28rem, 0.4vw, 0.55rem)
+      clamp(2.2rem, 3.2vw, 4.4rem)
+      clamp(0.35rem, 0.5vw, 0.7rem)
+      clamp(1.85rem, 2.2vw, 3.4rem);
+    gap: clamp(0.55rem, 0.9vw, 1.2rem);
+    align-items: center;
+  }
+
+  .brand {
+    margin-left: 0;
+    transform: translateY(clamp(0.25rem, 0.55vw, 0.9rem));
+    z-index: 1;
   }
 
   .brandWord {
-    font-size: clamp(0.82rem, 0.9vw, 1.04rem);
+    font-size: clamp(0.78rem, 0.78vw, 0.96rem);
   }
 
-  .brand { margin-left: 0.6rem; transform: translateY(2px); }
-
   .brandName {
-    font-size: clamp(1.7rem, 2.15vw, 2.85rem);
+    font-size: clamp(2rem, 2.2vw, 3.05rem);
   }
 
   .brandTag {
-    font-size: clamp(0.5rem, 0.55vw, 0.6rem);
+    font-size: clamp(0.43rem, 0.5vw, 0.65rem);
+  }
+
+  .desktopActions {
+    z-index: 1;
   }
 
   .desktopNav,
@@ -271,12 +287,56 @@
   }
 }
 
+@media (min-width: 1600px) {
+  .desktopNav {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+  .desktopActions {
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1599px) {
+  .desktopNav {
+    justify-content: center;
+  }
+}
+
 @media (min-width: 1101px) and (max-width: 1320px) {
-  .inner { grid-template-columns: minmax(0, 9.5rem) minmax(0, 1fr) auto; }
+  .inner {
+    grid-template-columns: minmax(11.5rem, 13.5rem) minmax(0, 1fr) auto;
+    padding:
+      0.35rem
+      clamp(1.7rem, 2.6vw, 2.8rem)
+      0.4rem
+      clamp(1.55rem, 2.4vw, 2.3rem);
+  }
+
+  .desktopNav {
+    gap: clamp(0.45rem, 0.8vw, 0.9rem);
+    font-size: 0.72rem;
+  }
+
   .desktopActions .phone { display: none; }
-  .brandName { font-size: 1.7rem; }
-  .brandWord { font-size: 0.7rem; }
-  .brandTag { font-size: 0.48rem; }
+  .brandName { font-size: 1.85rem; }
+  .brandWord { font-size: 0.62rem; margin-left: 1.95rem; }
+  .brandTag { font-size: 0.4rem; }
+}
+
+@media (min-width: 1321px) and (max-width: 1599px) {
+  .inner {
+    grid-template-columns: minmax(12.5rem, 15rem) minmax(0, 1fr) auto;
+    padding-inline: clamp(1.9rem, 2.4vw, 3rem) clamp(2rem, 2.6vw, 3.6rem);
+  }
+
+  .desktopNav {
+    gap: clamp(0.55rem, 0.9vw, 1.1rem);
+  }
 }
 
 @media (max-width: 1100px) {
@@ -285,16 +345,13 @@
     border-bottom: 0;
   }
 
-  .brandName {
-    font-size: clamp(1.25rem, 5.5vw, 1.55rem);
-  }
-
   .brandTag {
     display: none;
   }
 
-  .brandWord { margin-left: 1.15rem; }
-  .brandName { font-size: clamp(1.3rem, 4.5vw, 1.75rem); }
+  .brandWord { margin-left: 1.7rem; }
+  .brandName { font-size: clamp(1.45rem, 5vw, 1.9rem); }
+  .brandText { padding-top: 0.08rem; }
 
   .mobileActions .socialLink {
     display: flex;

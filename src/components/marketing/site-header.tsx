@@ -14,12 +14,12 @@ const NAV = [
 
 function CrownMark() {
   return (
-    <svg className={styles.crown} viewBox="0 0 48 34" aria-hidden="true" focusable="false">
+    <svg className={styles.crown} viewBox="0 0 28 28" aria-hidden="true" focusable="false">
       <path
         fill="currentColor"
-        d="M3 8.5 13 16l11-13 11 13 10-7.5-4 18H7L3 8.5Zm4 20h34v3H7v-3Z"
+        d="M2.8 6.4 8.2 12.2 14 1.8l5.8 10.4 5.4-5.8-2.2 15.2H5L2.8 6.4Zm2 16.4h18.4v1.9H4.8v-1.9Z"
       />
-      <circle cx="24" cy="17.5" r="2.3" fill="#8b1712" />
+      <circle cx="14" cy="14.2" r="1.35" fill="#8b1712" />
     </svg>
   )
 }
@@ -112,7 +112,13 @@ export function SiteHeader() {
         <a className={styles.brand} href="#top" aria-label="Плиточник Горыныч">
           <span className={styles.brandText} aria-hidden="true">
             <span className={styles.brandWord}>Плиточник</span>
-            <span className={styles.brandName}><span className={styles.brandInitial}><CrownMark />Г</span>орыныч</span>
+            <span className={styles.brandName}>
+              <span className={styles.brandInitial}>
+                <CrownMark />
+                Г
+              </span>
+              орыныч
+            </span>
             <span className={styles.brandTag}>Ровно. Надёжно. Надолго.</span>
           </span>
         </a>

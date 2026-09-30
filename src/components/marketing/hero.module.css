@@ -151,7 +151,7 @@
   .copy {
     position: absolute;
     top: clamp(5.5rem, 8vw, 10rem);
-    left: 26%;
+    left: 21.5%;
     width: clamp(20rem, 23vw, 31rem);
     max-width: none;
     gap: 0.1rem;
@@ -160,7 +160,7 @@
   .actions {
     position: absolute;
     top: clamp(19rem, 21.3vw, 34rem);
-    left: 26.8%;
+    left: 22.2%;
     width: clamp(20rem, 24vw, 33rem);
     flex-wrap: nowrap;
     gap: clamp(0.85rem, 1vw, 1.3rem);
@@ -244,10 +244,10 @@
 @media (min-width: 1800px) {
   .copy,
   .actions {
-    left: 26%;
+    left: 21.5%;
   }
 
-  .actions { left: 26.8%; }
+  .actions { left: 22.2%; }
 
   .callouts {
     display: block;
@@ -257,17 +257,17 @@
     pointer-events: none;
     color: #301e16;
     font-family: var(--gor-font-hand);
-    font-size: clamp(1.25rem, 1vw, 1.7rem);
+    font-size: clamp(1rem, 0.82vw, 1.28rem);
     font-weight: 700;
     line-height: 0.95;
     text-align: center;
   }
 
   .callouts span { position: absolute; text-shadow: 0 1px #fff0d3; }
-  .callouts span::after { content: '↘'; display: block; font-size: 1.6em; line-height: 0.8; }
-  .calloutLevel { left: 44%; top: 16%; transform: rotate(-8deg); }
-  .calloutTile { left: 67%; top: 16%; transform: rotate(6deg); }
-  .calloutFire { left: 81%; top: 20%; transform: rotate(-8deg); }
+  .callouts span::after { content: '↘'; display: block; font-size: 1.35em; line-height: 0.8; }
+  .calloutLevel { left: 42%; top: 20%; transform: rotate(-8deg); }
+  .calloutTile { left: 69%; top: 19%; transform: rotate(6deg); }
+  .calloutFire { left: 81%; top: 22%; transform: rotate(-8deg); }
 }
 
 @media (min-width: 1471px) {
