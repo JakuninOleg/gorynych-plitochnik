@@ -18,8 +18,8 @@
 
 @media (min-width: 1101px) {
   .world {
-    height: clamp(980px, 66.67vw, 1707px);
-    max-height: 1707px;
+    height: clamp(900px, 57.14vw, 1600px);
+    max-height: 1600px;
   }
 
   .main { height: 100%; }
@@ -30,7 +30,7 @@
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    background-image: url("/images/world-desktop-v2.webp");
+    background-image: url("/images/world-desktop-v3.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;

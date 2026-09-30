@@ -48,7 +48,7 @@ export function ProcessSection() {
               <div className={styles.frame}>
                 <span className={styles.ribbon}>{step.title}</span>
                 <span className={styles.medal} aria-hidden="true">
-                  {String(index + 1).padStart(2, '0')}
+                  {index + 1}
                 </span>
                 <div className={styles.art}>
                   <Image

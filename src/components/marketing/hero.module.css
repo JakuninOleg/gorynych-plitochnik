@@ -35,9 +35,9 @@
 
 .title {
   margin: 0;
-  font-family: var(--gor-font-display);
+  font-family: var(--gor-font-fairy);
   font-size: clamp(1.9rem, 3.8vw, 3.15rem);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.08;
   letter-spacing: -0.01em;
 }
@@ -54,6 +54,8 @@
   max-width: 28ch;
 }
 
+.leadLine { display: inline; }
+
 .actions {
   display: flex;
   flex-wrap: wrap;
@@ -67,6 +69,7 @@
   justify-content: center;
   min-height: 2.85rem;
   padding: 0.7rem 1.2rem;
+  gap: 0.55rem;
   border-radius: 3px;
   font-weight: 700;
   text-decoration: none;
@@ -129,11 +132,14 @@
   display: none;
 }
 
+.primary svg,
+.secondary svg { width: 1.1rem; height: 1.1rem; flex: 0 0 auto; }
+
 .callouts { display: none; }
 
 @media (min-width: 1101px) {
   .hero {
-    height: 49%;
+    height: 50.5%;
     min-height: 0;
   }
 
@@ -144,24 +150,44 @@
 
   .copy {
     position: absolute;
-    top: clamp(5.5rem, 7.5vw, 9rem);
-    left: 24%;
+    top: clamp(5.5rem, 8vw, 10rem);
+    left: 26%;
     width: clamp(20rem, 23vw, 31rem);
     max-width: none;
-    gap: 0.7rem;
+    gap: 0.1rem;
   }
 
   .actions {
     position: absolute;
-    top: clamp(27rem, 26vw, 42rem);
-    left: 24%;
+    top: clamp(19rem, 21.3vw, 34rem);
+    left: 26.8%;
     width: clamp(20rem, 24vw, 33rem);
+    flex-wrap: nowrap;
+    gap: clamp(0.85rem, 1vw, 1.3rem);
   }
 
   .title {
-    font-size: clamp(2.55rem, 2.9vw, 4.4rem);
-    line-height: 1.02;
+    width: 114%;
+    font-size: clamp(2.35rem, 2.55vw, 3.8rem);
+    line-height: 0.99;
     letter-spacing: -0.055em;
+    transform: rotate(-1.1deg) scaleX(0.88);
+    transform-origin: left top;
+    -webkit-text-stroke: 0.3px currentColor;
+  }
+
+  .titleLine,
+  .accent {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .accent {
+    font-size: 1.42em;
+    line-height: 0.88;
+    margin-left: 0.4em;
+    letter-spacing: -0.07em;
+    -webkit-text-stroke-color: var(--gor-accent-word);
   }
 
   .proof {
@@ -171,16 +197,25 @@
   .lead {
     font-family: var(--gor-font-display);
     font-size: clamp(1.05rem, 1.05vw, 1.25rem);
-    line-height: 1.38;
-    max-width: 30ch;
+    line-height: 1.26;
+    max-width: 33ch;
+    margin-left: clamp(1.25rem, 1.8vw, 2rem);
+    color: var(--gor-ink);
+    font-weight: 700;
   }
 
   .primary,
   .secondary {
-    font-family: var(--gor-font-display);
-    font-size: clamp(0.95rem, 1vw, 1.2rem);
-    min-height: clamp(3rem, 3vw, 4rem);
+    font-family: var(--gor-font-body);
+    font-size: clamp(0.68rem, 0.69vw, 0.9rem);
+    min-height: clamp(2.4rem, 2.4vw, 3.5rem);
+    padding: 0.45rem clamp(0.55rem, 0.6vw, 0.95rem);
+    gap: 0.35rem;
+    white-space: nowrap;
   }
+
+  .primary { min-width: clamp(11.8rem, 11.6vw, 17rem); }
+  .secondary { min-width: clamp(8.8rem, 8.5vw, 13rem); }
 
   .plaque {
     display: block;
@@ -209,10 +244,10 @@
 @media (min-width: 1800px) {
   .copy,
   .actions {
-    left: 25%;
+    left: 26%;
   }
 
-  .actions { top: clamp(32rem, 27vw, 44rem); }
+  .actions { left: 26.8%; }
 
   .callouts {
     display: block;
@@ -235,8 +270,19 @@
   .calloutFire { left: 81%; top: 20%; transform: rotate(-8deg); }
 }
 
+@media (min-width: 1471px) {
+  .leadLine { display: block; white-space: nowrap; }
+}
+
 @media (min-width: 1101px) and (max-width: 1470px) {
-  .actions { top: 25.75rem; }
+  .title { width: 130%; transform: rotate(-1.1deg) scaleX(0.76); }
+  .lead { max-width: 24ch; }
+  .actions {
+    top: clamp(19.8rem, 24vw, 23rem);
+    width: clamp(13.5rem, 20vw, 18rem);
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
 }
 
 @media (max-width: 1100px) {
@@ -288,6 +334,9 @@
   .lead {
     max-width: 36ch;
   }
+
+  .titleLine,
+  .accent { display: inline; white-space: normal; }
 }
 
 @media (min-width: 701px) and (max-width: 1100px) {

@@ -1,7 +1,8 @@
 'use client'
 
-import { List, TelegramLogo, WhatsappLogo, X } from '@phosphor-icons/react'
+import { List, X } from '@phosphor-icons/react'
 import { useEffect, useId, useRef, useState } from 'react'
+import { siTelegram, siWhatsapp } from 'simple-icons'
 import { PHONE_HREF, PHONE_LABEL, WHATSAPP_URL } from '@/lib/gorynych-contacts'
 import styles from './site-header.module.css'
 
@@ -13,11 +14,20 @@ const NAV = [
 
 function CrownMark() {
   return (
-    <svg className={styles.crown} viewBox="0 0 48 32" aria-hidden="true" focusable="false">
+    <svg className={styles.crown} viewBox="0 0 48 34" aria-hidden="true" focusable="false">
       <path
         fill="currentColor"
-        d="M4 24.5 9.2 9.4l7.4 8.8L24 5.2l7.4 13 7.4-8.8L44 24.5H4Zm2.6 3.2h34.8c1 0 1.8.8 1.8 1.8v.7H4.8v-.7c0-1 .8-1.8 1.8-1.8Z"
+        d="M3 8.5 13 16l11-13 11 13 10-7.5-4 18H7L3 8.5Zm4 20h34v3H7v-3Z"
       />
+      <circle cx="24" cy="17.5" r="2.3" fill="#8b1712" />
+    </svg>
+  )
+}
+
+function BrandIcon({ type }: { type: 'whatsapp' | 'telegram' }) {
+  return (
+    <svg viewBox="0 0 24 24" className={styles.brandIcon} aria-hidden="true" focusable="false">
+      <path d={type === 'whatsapp' ? siWhatsapp.path : siTelegram.path} fill="currentColor" />
     </svg>
   )
 }
@@ -100,12 +110,9 @@ export function SiteHeader() {
     <header className={styles.header}>
       <div className={styles.inner}>
         <a className={styles.brand} href="#top" aria-label="Плиточник Горыныч">
-          <span className={styles.brandMark} aria-hidden="true">
-            <CrownMark />
-          </span>
           <span className={styles.brandText} aria-hidden="true">
             <span className={styles.brandWord}>Плиточник</span>
-            <span className={styles.brandName}>Горыныч</span>
+            <span className={styles.brandName}><span className={styles.brandInitial}><CrownMark />Г</span>орыныч</span>
             <span className={styles.brandTag}>Ровно. Надёжно. Надолго.</span>
           </span>
         </a>
@@ -125,7 +132,7 @@ export function SiteHeader() {
               target="_blank"
               aria-label="Написать в WhatsApp"
             >
-              <WhatsappLogo size={22} weight="fill" aria-hidden />
+              <BrandIcon type="whatsapp" />
             </a>
             <span
               className={styles.socialPending}
@@ -133,7 +140,7 @@ export function SiteHeader() {
               title="Telegram скоро появится — ник запрашивается"
               aria-label="Telegram скоро появится, ник ещё не указан"
             >
-              <TelegramLogo size={22} weight="fill" aria-hidden />
+              <BrandIcon type="telegram" />
             </span>
           </div>
           <a className={styles.phone} href={PHONE_HREF}>{PHONE_LABEL}</a>
@@ -192,13 +199,13 @@ export function SiteHeader() {
             onClick={close}
             aria-label="Написать в WhatsApp"
           >
-            <WhatsappLogo size={22} weight="fill" aria-hidden />
+            <BrandIcon type="whatsapp" />
             WhatsApp
           </a>
           <span
             className={styles.socialPendingRow}
           >
-            <TelegramLogo size={22} weight="fill" aria-hidden />
+            <BrandIcon type="telegram" />
             Telegram скоро
           </span>
           <a className={styles.phone} href={PHONE_HREF} onClick={close}>{PHONE_LABEL}</a>
