@@ -1,21 +1,22 @@
 'use client'
 
-import { List, X } from '@phosphor-icons/react'
+import { List, TelegramLogo, WhatsappLogo, X } from '@phosphor-icons/react'
 import { useEffect, useId, useRef, useState } from 'react'
 import { PHONE_HREF, PHONE_LABEL, WHATSAPP_URL } from '@/lib/gorynych-contacts'
 import styles from './site-header.module.css'
 
 const NAV = [
+  { href: '#top', label: 'Главная' },
   { href: '#process', label: 'Как я работаю' },
   { href: '#contacts', label: 'Контакты' },
 ] as const
 
 function CrownMark() {
   return (
-    <svg className={styles.crown} viewBox="0 0 40 28" aria-hidden="true" focusable="false">
+    <svg className={styles.crown} viewBox="0 0 48 32" aria-hidden="true" focusable="false">
       <path
         fill="currentColor"
-        d="M3 22.5 7.2 8.8l6.1 7.4L20 4.5l6.7 11.7 6.1-7.4L36.8 22.5H3Zm2.2 2.8h29.6c.9 0 1.6.7 1.6 1.6v.6H3.6v-.6c0-.9.7-1.6 1.6-1.6Z"
+        d="M4 24.5 9.2 9.4l7.4 8.8L24 5.2l7.4 13 7.4-8.8L44 24.5H4Zm2.6 3.2h34.8c1 0 1.8.8 1.8 1.8v.7H4.8v-.7c0-1 .8-1.8 1.8-1.8Z"
       />
     </svg>
   )
@@ -35,6 +36,18 @@ export function SiteHeader() {
       toggleRef.current?.focus({ preventScroll: true })
     }
   }, [open])
+
+  useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 1101px)')
+    const closeOnDesktop = () => {
+      if (desktop.matches) {
+        restoreFocusRef.current = false
+        setOpen(false)
+      }
+    }
+    desktop.addEventListener('change', closeOnDesktop)
+    return () => desktop.removeEventListener('change', closeOnDesktop)
+  }, [])
 
   useEffect(() => {
     if (!open) return
@@ -104,6 +117,25 @@ export function SiteHeader() {
         </nav>
 
         <div className={styles.desktopActions}>
+          <div className={styles.social}>
+            <a
+              className={styles.socialLink}
+              href={WHATSAPP_URL}
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label="Написать в WhatsApp"
+            >
+              <WhatsappLogo size={22} weight="fill" aria-hidden />
+            </a>
+            <span
+              className={styles.socialPending}
+              role="img"
+              title="Telegram скоро появится — ник запрашивается"
+              aria-label="Telegram скоро появится, ник ещё не указан"
+            >
+              <TelegramLogo size={22} weight="fill" aria-hidden />
+            </span>
+          </div>
           <a className={styles.phone} href={PHONE_HREF}>{PHONE_LABEL}</a>
           <a className={styles.cta} href={WHATSAPP_URL} rel="noopener noreferrer" target="_blank">
             Обсудить проект
@@ -152,6 +184,23 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className={styles.mobileActions}>
+          <a
+            className={styles.socialLink}
+            href={WHATSAPP_URL}
+            rel="noopener noreferrer"
+            target="_blank"
+            onClick={close}
+            aria-label="Написать в WhatsApp"
+          >
+            <WhatsappLogo size={22} weight="fill" aria-hidden />
+            WhatsApp
+          </a>
+          <span
+            className={styles.socialPendingRow}
+          >
+            <TelegramLogo size={22} weight="fill" aria-hidden />
+            Telegram скоро
+          </span>
           <a className={styles.phone} href={PHONE_HREF} onClick={close}>{PHONE_LABEL}</a>
           <a
             className={styles.cta}

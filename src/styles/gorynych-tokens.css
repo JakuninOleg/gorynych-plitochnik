@@ -11,7 +11,8 @@
   --gor-sky: #658ca1;
   --gor-accent-word: #64100e;
 
-  --gor-font-display: "Yeseva One", "Times New Roman", "Noto Serif", serif;
+  --gor-font-display: "PT Serif", "Times New Roman", "Noto Serif", serif;
+  --gor-font-ornament: "Ruslan Display", "PT Serif", serif;
   --gor-font-body: "Inter Variable", "Segoe UI", sans-serif;
   --gor-font-hand: "Caveat Variable", cursive;
 

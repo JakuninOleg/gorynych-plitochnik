@@ -1,6 +1,5 @@
 import '@fontsource-variable/inter'
 import '@fontsource-variable/caveat'
-import '@fontsource/yeseva-one/400.css'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import './globals.css'

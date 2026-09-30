@@ -1,10 +1,8 @@
 .header {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 30;
-  background: color-mix(in srgb, var(--gor-parchment) 90%, transparent);
-  border-bottom: 1px solid color-mix(in srgb, var(--gor-parchment-edge) 55%, transparent);
-  backdrop-filter: blur(8px);
+  background: transparent;
+  border-bottom: none;
 }
 
 .inner {
@@ -14,13 +12,13 @@
   gap: var(--gor-space-4);
   width: min(100% - 2rem, var(--gor-content-max));
   margin-inline: auto;
-  padding-block: 0.7rem;
+  padding-block: 0.85rem;
 }
 
 .brand {
   display: inline-flex;
   align-items: flex-start;
-  gap: 0.55rem;
+  gap: 0.45rem;
   min-width: 0;
   color: inherit;
   text-decoration: none;
@@ -30,74 +28,116 @@
   display: grid;
   place-items: center;
   flex: 0 0 auto;
-  margin-top: 0.35rem;
+  margin-top: 0.12rem;
 }
 
 .crown {
-  width: 1.55rem;
-  height: 1.1rem;
-  color: var(--gor-gold);
+  width: 1.7rem;
+  height: 1.15rem;
+  color: var(--gor-ink);
 }
 
 .brandText {
   display: grid;
   min-width: 0;
-  gap: 0.05rem;
+  gap: 0.02rem;
 }
 
 .brandWord {
   font-family: var(--gor-font-display);
-  font-size: clamp(0.68rem, 1.1vw, 0.82rem);
+  font-size: clamp(0.72rem, 1.15vw, 0.88rem);
+  font-weight: 700;
   line-height: 1.1;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gor-ink-muted);
+  color: var(--gor-ink);
 }
 
 .brandName {
   font-family: var(--gor-font-display);
-  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
-  line-height: 1;
+  font-size: clamp(1.55rem, 2.8vw, 2.15rem);
+  font-weight: 700;
+  line-height: 0.95;
   color: var(--gor-accent-word);
   letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
 .brandTag {
   color: var(--gor-ink-muted);
-  font-size: 0.72rem;
-  letter-spacing: 0.02em;
-  margin-top: 0.15rem;
+  font-family: var(--gor-font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.18rem;
 }
 
 .desktopNav {
   display: none;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.15rem;
 }
 
 .desktopNav a,
 .mobileNav a {
   color: var(--gor-ink);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .desktopNav a:hover,
 .mobileNav a:hover,
-.phone:hover {
+.phone:hover,
+.socialLink:hover {
   color: var(--gor-cta);
 }
 
 .desktopActions {
   display: none;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.75rem;
+}
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.socialLink,
+.socialPending {
+  display: inline-grid;
+  place-items: center;
+  width: 2.45rem;
+  height: 2.45rem;
+  border: 1.5px solid color-mix(in srgb, var(--gor-ink) 35%, var(--gor-parchment-edge));
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--gor-parchment-light) 88%, white);
+  color: var(--gor-ink);
+  text-decoration: none;
+}
+
+.socialPending {
+  cursor: default;
+}
+
+.socialPendingRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.75rem;
+  padding: 0.45rem 0.8rem;
+  border: 1.5px dashed color-mix(in srgb, var(--gor-ink) 30%, var(--gor-parchment-edge));
+  border-radius: 3px;
+  color: var(--gor-ink-muted);
+  font-weight: 600;
 }
 
 .phone {
   color: var(--gor-ink);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   white-space: nowrap;
 }
 
@@ -111,7 +151,7 @@
   border-radius: 3px;
   background: var(--gor-cta);
   color: #fff8ee;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   box-shadow: inset 0 0 0 1px color-mix(in srgb, #fff2d8 22%, transparent);
   transition: background-color 180ms ease;
@@ -145,9 +185,85 @@
   display: none;
 }
 
-@media (min-width: 901px) {
+@media (min-width: 1101px) {
+  .header::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: calc(20vw - 1rem);
+    width: min(80vw, 1520px);
+    border-bottom: 1px solid color-mix(in srgb, var(--gor-parchment-edge) 60%, transparent);
+    background: color-mix(in srgb, var(--gor-parchment-light) 95%, transparent);
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 97% 92%, 88% 89%, 75% 94%, 60% 90%, 45% 95%, 30% 91%, 15% 96%, 0 90%);
+  }
+
   .inner {
-    grid-template-columns: minmax(12rem, 1.2fr) auto auto;
+    grid-template-columns: minmax(14rem, 1fr) auto auto;
+    width: min(76vw, 1700px);
+    margin-left: 20vw;
+    margin-right: 0;
+    padding-top: clamp(0.75rem, 0.85vw, 1.3rem);
+    padding-bottom: clamp(0.9rem, 1vw, 1.5rem);
+  }
+
+  .brand {
+    position: relative;
+    gap: 0;
+  }
+
+  .brandMark {
+    position: absolute;
+    top: -0.15rem;
+    left: -0.2rem;
+    margin: 0;
+    transform: rotate(-8deg);
+  }
+
+  .brandText {
+    padding-left: 0.15rem;
+  }
+
+  .brandWord {
+    font-size: clamp(0.8rem, 0.75vw, 1.1rem);
+    padding-left: 1.8rem;
+  }
+
+  .brandName {
+    font-family: var(--gor-font-ornament);
+    font-size: clamp(2rem, 1.9vw, 3rem);
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .brandTag {
+    font-size: clamp(0.65rem, 0.65vw, 0.9rem);
+  }
+
+  .desktopNav,
+  .desktopActions {
+    font-size: clamp(0.82rem, 0.78vw, 1.05rem);
+  }
+
+  .socialLink,
+  .socialPending {
+    width: clamp(2.45rem, 2.2vw, 3rem);
+    height: clamp(2.45rem, 2.2vw, 3rem);
+  }
+
+  .socialLink {
+    border-color: #168d44;
+    border-radius: 999px;
+    background: #23ba59;
+    color: white;
+  }
+
+  .socialPending {
+    border-color: #1478aa;
+    border-radius: 999px;
+    background: #229bd1;
+    color: white;
   }
 
   .desktopNav,
@@ -158,11 +274,23 @@
   .menuToggle {
     display: none;
   }
+
+  .header {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+  }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
+  .header {
+    background: color-mix(in srgb, var(--gor-parchment) 82%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--gor-parchment-edge) 45%, transparent);
+    backdrop-filter: blur(6px);
+  }
+
   .brandName {
-    font-size: clamp(1.2rem, 5.5vw, 1.45rem);
+    font-size: clamp(1.25rem, 5.5vw, 1.55rem);
   }
 
   .brandTag {
@@ -203,6 +331,7 @@
   .panelTitle {
     font-family: var(--gor-font-display);
     font-size: 1.15rem;
+    font-weight: 700;
   }
 
   .mobileNav {

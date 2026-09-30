@@ -1,0 +1,110 @@
+/* Shared desktop world: one continuous illustration for header + hero + process. */
+.world {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background: var(--gor-parchment);
+}
+
+.desktopBg {
+  display: none;
+}
+
+.main { position: relative; z-index: 1; }
+
+.signboard {
+  display: none;
+}
+
+@media (min-width: 1101px) {
+  .world {
+    height: clamp(980px, 66.67vw, 1707px);
+    max-height: 1707px;
+  }
+
+  .main { height: 100%; }
+
+  .desktopBg {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url("/images/world-desktop-v2.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+  }
+
+  .signboard {
+    display: flex;
+    position: absolute;
+    z-index: 3;
+    left: 3.8%;
+    top: 42%;
+    width: 10%;
+    height: 25%;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0;
+    pointer-events: none;
+    color: #2a1c12;
+    font-family: var(--gor-font-display);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+
+  .board,
+  .boardWide {
+    display: grid;
+    place-items: center;
+    flex: 1 1 0;
+    min-height: 0;
+    padding: 0 0.3rem;
+    font-size: clamp(0.65rem, 0.95vw, 1rem);
+    font-weight: 700;
+    text-shadow: 0 1px 0 color-mix(in srgb, #f4e4c7 35%, transparent);
+  }
+
+  .boardWide {
+    display: none;
+  }
+
+  .boardMotto {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 7vw);
+    padding: 0.15rem 0.2rem;
+    font-size: clamp(0.58rem, 0.72vw, 0.9rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+    text-transform: uppercase;
+  }
+}
+
+@media (min-width: 1600px) {
+  .boardWide {
+    display: grid;
+  }
+}
+
+@media (min-width: 1800px) {
+  .boardMotto {
+    display: block;
+  }
+}
+
+@media (min-width: 2560px) {
+  .signboard {
+    left: 3.8%;
+    width: 10%;
+    top: 40%;
+    height: 28%;
+  }
+
+}
