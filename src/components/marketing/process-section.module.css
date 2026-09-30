@@ -157,7 +157,7 @@
 
 @media (min-width: 1101px) {
   .section {
-    height: 49.5%;
+    height: 35%;
     min-height: 0;
     padding: 0.55rem 0 1.1rem;
     background: transparent;
@@ -445,13 +445,16 @@
 
   .title {
     margin: 0;
+    display: inline-flex;
+    gap: 0.16em;
     color: var(--gor-ink);
     font-family: var(--gor-font-fairy);
     font-size: clamp(2rem, 2vw, 3rem);
     font-weight: 900;
     line-height: 1;
-    letter-spacing: -0.055em;
-    transform: scaleX(0.87);
+    letter-spacing: -0.025em;
+    word-spacing: 0.08em;
+    transform: none;
   }
 
   .grid {
@@ -591,5 +594,14 @@
     font-family: var(--gor-font-fairy);
     font-size: 1.15rem;
     font-weight: 900;
+  }
+}
+
+/* The illustration is height-fitted on narrower desktop viewports. Its
+   process panels stay roughly 1000px wide while the sides are cropped. */
+@media (min-width: 1101px) and (max-width: 1672px) {
+  .inner {
+    width: 1000px;
+    margin-left: calc(50% - 500px);
   }
 }

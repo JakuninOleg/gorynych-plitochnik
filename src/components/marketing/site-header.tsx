@@ -1,6 +1,7 @@
 'use client'
 
-import { List, X } from '@phosphor-icons/react'
+import { X } from '@phosphor-icons/react'
+import Image from 'next/image'
 import { useEffect, useId, useRef, useState } from 'react'
 import { siTelegram, siWhatsapp } from 'simple-icons'
 import { PHONE_HREF, PHONE_LABEL, WHATSAPP_URL } from '@/lib/gorynych-contacts'
@@ -11,18 +12,6 @@ const NAV = [
   { href: '#process', label: 'Как я работаю' },
   { href: '#contacts', label: 'Контакты' },
 ] as const
-
-function CrownMark() {
-  return (
-    <svg className={styles.crown} viewBox="0 0 28 28" aria-hidden="true" focusable="false">
-      <path
-        fill="currentColor"
-        d="M2.8 6.4 8.2 12.2 14 1.8l5.8 10.4 5.4-5.8-2.2 15.2H5L2.8 6.4Zm2 16.4h18.4v1.9H4.8v-1.9Z"
-      />
-      <circle cx="14" cy="14.2" r="1.35" fill="#8b1712" />
-    </svg>
-  )
-}
 
 function BrandIcon({ type }: { type: 'whatsapp' | 'telegram' }) {
   return (
@@ -108,19 +97,29 @@ export function SiteHeader() {
 
   return (
     <header className={styles.header}>
+      <div className={styles.parchment} aria-hidden="true">
+        <Image
+          className={styles.parchmentImage}
+          src="/images/header-parchment-v2.webp"
+          alt=""
+          width={2172}
+          height={365}
+          priority
+          sizes="(max-width: 1100px) 100vw, 63vw"
+        />
+      </div>
+
       <div className={styles.inner}>
-        <a className={styles.brand} href="#top" aria-label="Плиточник Горыныч">
-          <span className={styles.brandText} aria-hidden="true">
-            <span className={styles.brandWord}>Плиточник</span>
-            <span className={styles.brandName}>
-              <span className={styles.brandInitial}>
-                <CrownMark />
-                Г
-              </span>
-              орыныч
-            </span>
-            <span className={styles.brandTag}>Ровно. Надёжно. Надолго.</span>
-          </span>
+        <a className={styles.brand} href="#top">
+          <Image
+            className={styles.logo}
+            src="/images/gorynych-logo-v2.webp"
+            alt="Плиточник Горыныч — Ровно. Надёжно. Надолго."
+            width={1770}
+            height={801}
+            priority
+            sizes="(max-width: 1100px) 150px, 160px"
+          />
         </a>
 
         <nav className={styles.desktopNav} aria-label="Основная навигация">
@@ -161,16 +160,19 @@ export function SiteHeader() {
           className={styles.menuToggle}
           aria-expanded={open}
           aria-controls={panelId}
-          onClick={() => setOpen(true)}
+          onClick={() => setOpen((value) => !value)}
         >
-          <List size={22} weight="bold" aria-hidden />
-          <span>Меню</span>
+          <span className={styles.burger} aria-hidden="true">
+            <span className={styles.burgerLine} />
+            <span className={styles.burgerLine} />
+            <span className={styles.burgerLine} />
+          </span>
+          <span className={styles.menuToggleLabel}>{open ? 'Закрыть' : 'Меню'}</span>
         </button>
       </div>
 
       <div
-        className={open ? styles.backdropOpen : styles.backdrop}
-        hidden={!open}
+        className={`${styles.backdrop} ${open ? styles.backdropOpen : ''}`}
         onClick={close}
         aria-hidden
       />
@@ -178,16 +180,17 @@ export function SiteHeader() {
       <div
         ref={panelRef}
         id={panelId}
-        className={open ? styles.panelOpen : styles.panel}
+        className={`${styles.panel} ${open ? styles.panelOpen : ''}`}
         role="dialog"
         aria-modal="true"
         aria-label="Меню"
-        hidden={!open}
+        aria-hidden={!open}
+        {...(!open ? { inert: true } : {})}
       >
         <div className={styles.panelHead}>
           <span className={styles.panelTitle}>Меню</span>
           <button ref={closeRef} type="button" className={styles.close} onClick={close}>
-            <X size={22} weight="bold" aria-hidden />
+            <X size={18} weight="bold" aria-hidden />
             Закрыть
           </button>
         </div>
@@ -208,9 +211,7 @@ export function SiteHeader() {
             <BrandIcon type="whatsapp" />
             WhatsApp
           </a>
-          <span
-            className={styles.socialPendingRow}
-          >
+          <span className={styles.socialPendingRow}>
             <BrandIcon type="telegram" />
             Telegram скоро
           </span>

@@ -1,3 +1,5 @@
+/* Geometry locked to 1672 reference: parchment x350–1395, bottom ~y95; logo ~x375 y7, ~152×69. */
+
 .header {
   position: relative;
   z-index: 30;
@@ -5,14 +7,32 @@
   border-bottom: none;
 }
 
+.parchment {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.parchmentImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
 .inner {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: var(--gor-space-4);
-  width: min(100% - 2rem, var(--gor-content-max));
+  width: min(100% - 1.25rem, var(--gor-content-max));
   margin-inline: auto;
-  padding-block: 0.85rem;
+  padding-block: 0.55rem;
 }
 
 .brand {
@@ -23,67 +43,10 @@
   text-decoration: none;
 }
 
-.crown {
-  position: absolute;
-  width: 0.48em;
-  height: 0.45em;
-  top: -0.4em;
-  left: 0.18em;
-  color: var(--gor-ink);
-  transform: rotate(-5deg);
-}
-
-.brandText {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 0;
-  padding-top: 0.28rem;
-}
-
-.brandWord {
-  font-family: var(--gor-font-display);
-  font-size: clamp(0.66rem, 0.7vw, 0.8rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.035em;
-  text-transform: uppercase;
-  color: var(--gor-ink);
-  margin-left: clamp(1.5rem, 1.65vw, 2.1rem);
-}
-
-.brandName {
-  font-family: var(--gor-font-ornament);
-  font-size: clamp(1.95rem, 2.45vw, 2.95rem);
-  font-weight: 900;
-  line-height: 0.9;
-  color: #8b1712;
-  letter-spacing: -0.035em;
-  white-space: nowrap;
-  text-shadow: 0.35px 0.55px #4e100d;
-  transform: rotate(-0.4deg) scaleX(0.76);
-  transform-origin: left center;
-}
-
-.brandInitial {
-  position: relative;
-  display: inline-block;
-  font-size: 1.42em;
-  line-height: 0.72;
-  margin-right: 0.01em;
-  transform: translateY(0.02em);
-}
-
-.brandTag {
-  color: var(--gor-ink);
-  font-family: var(--gor-font-body);
-  font-size: clamp(0.45rem, 0.47vw, 0.54rem);
-  font-weight: 600;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  margin-top: 0.22rem;
-  margin-left: 0;
-  white-space: nowrap;
+.logo {
+  display: block;
+  width: clamp(8.4rem, 38vw, 9.5rem);
+  height: auto;
 }
 
 .desktopNav {
@@ -186,16 +149,110 @@
 
 .menuToggle,
 .close {
+  --menu-btn-shadow: 0 6px 14px color-mix(in srgb, var(--gor-ink) 12%, transparent);
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  min-height: 2.75rem;
-  padding: 0.45rem 0.8rem;
-  border: 1.5px solid color-mix(in srgb, var(--gor-ink) 35%, var(--gor-parchment-edge));
-  border-radius: 3px;
-  background: var(--gor-parchment-light);
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 2.7rem;
+  padding: 0.55rem 0.95rem;
+  border: 1.5px solid color-mix(in srgb, var(--gor-ink) 48%, var(--gor-parchment-edge));
+  border-radius: 0.7rem;
+  background:
+    linear-gradient(
+      180deg,
+      #fffaf0 0%,
+      var(--gor-parchment-light) 55%,
+      color-mix(in srgb, var(--gor-parchment) 70%, #e7d3ad) 100%
+    );
   color: var(--gor-ink);
+  font-family: var(--gor-font-body);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1;
   cursor: pointer;
+  box-shadow: var(--menu-btn-shadow);
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    box-shadow 220ms ease,
+    transform 200ms ease;
+}
+
+.menuToggle:hover,
+.close:hover {
+  border-color: color-mix(in srgb, var(--gor-ink) 68%, var(--gor-gold));
+  background:
+    linear-gradient(
+      180deg,
+      #fffdf8 0%,
+      color-mix(in srgb, var(--gor-parchment-light) 85%, white) 60%,
+      var(--gor-parchment) 100%
+    );
+  box-shadow:
+    0 10px 18px color-mix(in srgb, var(--gor-ink) 14%, transparent),
+    0 1px 0 color-mix(in srgb, white 55%, transparent) inset;
+}
+
+.menuToggle:active,
+.close:active {
+  transform: translateY(1px);
+}
+
+.menuToggle:focus-visible,
+.close:focus-visible {
+  outline: 2px solid var(--gor-cta);
+  outline-offset: 3px;
+}
+
+.burger {
+  position: relative;
+  display: block;
+  width: 1.15rem;
+  height: 0.85rem;
+  flex: 0 0 auto;
+}
+
+.burgerLine {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transition:
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 200ms ease;
+}
+
+.burgerLine:nth-child(1) { top: 0; }
+.burgerLine:nth-child(2) { top: 50%; margin-top: -1px; }
+.burgerLine:nth-child(3) { bottom: 0; }
+
+.menuToggle[aria-expanded='true'] .burgerLine:nth-child(1) {
+  top: 50%;
+  margin-top: -1px;
+  transform: rotate(45deg);
+}
+
+.menuToggle[aria-expanded='true'] .burgerLine:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0.4);
+}
+
+.menuToggle[aria-expanded='true'] .burgerLine:nth-child(3) {
+  bottom: auto;
+  top: 50%;
+  margin-top: -1px;
+  transform: rotate(-45deg);
+}
+
+.menuToggleLabel {
+  display: inline-block;
+  min-width: 4.2em;
+  text-align: left;
 }
 
 .backdrop,
@@ -209,59 +266,79 @@
 }
 
 @media (min-width: 1101px) {
-  .header::before {
-    content: "";
+  .header {
     position: absolute;
-    z-index: -1;
+    inset-inline: 0;
     top: 0;
-    left: 20.3%;
-    width: 65.2%;
-    height: clamp(5.4rem, 6.1vw, 8.4rem);
-    background: url("/images/header-parchment-v1.webp") center 42% / 100% 168% no-repeat;
+    /* Reference 1672: parchment x350–1395. Height follows asset 2172×365,
+       then slightly compressed so the bar stays near y90–100 (~5.7vw). */
+    --gor-header-left: 20.93%;
+    --gor-header-paper-left: 19.1%;
+    --gor-header-width: 62.5%;
+    --gor-header-height: calc(62.5vw * 365 / 2172 * 0.54);
+    --gor-header-lift: clamp(8px, 0.55vw, 14px);
+  }
+
+  .parchment {
+    top: calc(-1 * var(--gor-header-lift));
+    right: auto;
+    bottom: auto;
+    left: var(--gor-header-paper-left);
+    width: var(--gor-header-width);
+    height: calc(var(--gor-header-height) + var(--gor-header-lift));
+    overflow: visible;
     filter: drop-shadow(0 3px 3px #55392055);
-    pointer-events: none;
+  }
+
+  .parchmentImage {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
   }
 
   .inner {
-    position: relative;
-    grid-template-columns: minmax(13.5rem, 17rem) minmax(0, 1fr) auto;
-    width: 65.2%;
-    min-height: clamp(4.9rem, 5.5vw, 7.3rem);
-    margin-left: 20.3%;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    width: var(--gor-header-width);
+    min-height: var(--gor-header-height);
+    margin-left: var(--gor-header-left);
     margin-right: 0;
     padding:
-      clamp(0.28rem, 0.4vw, 0.55rem)
-      clamp(2.2rem, 3.2vw, 4.4rem)
-      clamp(0.35rem, 0.5vw, 0.7rem)
-      clamp(1.85rem, 2.2vw, 3.4rem);
+      0.28rem
+      clamp(2.4rem, 3.8vw, 5.2rem)
+      0.45rem
+      clamp(1.35rem, 1.55vw, 2.1rem);
     gap: clamp(0.55rem, 0.9vw, 1.2rem);
     align-items: center;
   }
 
   .brand {
-    margin-left: 0;
-    transform: translateY(clamp(0.25rem, 0.55vw, 0.9rem));
     z-index: 1;
+    align-self: start;
+    margin-top: clamp(0.15rem, 0.2vw, 0.35rem);
   }
 
-  .brandWord {
-    font-size: clamp(0.78rem, 0.78vw, 0.96rem);
+  .logo {
+    /* ~152×69 at 1672; scales with viewport */
+    width: clamp(8.6rem, 9.09vw, 14.6rem);
+    max-width: 100%;
+    height: auto;
   }
 
-  .brandName {
-    font-size: clamp(2rem, 2.2vw, 3.05rem);
-  }
-
-  .brandTag {
-    font-size: clamp(0.43rem, 0.5vw, 0.65rem);
+  .desktopNav {
+    position: absolute;
+    /* Slight left bias (~26px) clears social icons while staying within ~30px of parchment center. */
+    left: calc(50% - clamp(1.1rem, 1.35vw, 1.75rem));
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    z-index: 1;
+    font-size: clamp(0.74rem, 0.75vw, 0.98rem);
   }
 
   .desktopActions {
+    display: flex;
     z-index: 1;
-  }
-
-  .desktopNav,
-  .desktopActions {
+    margin-left: auto;
     font-size: clamp(0.74rem, 0.75vw, 0.98rem);
   }
 
@@ -271,50 +348,19 @@
     height: clamp(1.8rem, 1.95vw, 2.3rem);
   }
 
-  .desktopNav,
-  .desktopActions {
-    display: flex;
-  }
-
   .menuToggle {
     display: none;
-  }
-
-  .header {
-    position: absolute;
-    inset-inline: 0;
-    top: 0;
-  }
-}
-
-@media (min-width: 1600px) {
-  .desktopNav {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-  }
-
-  .desktopActions {
-    margin-left: auto;
-  }
-}
-
-@media (min-width: 1101px) and (max-width: 1599px) {
-  .desktopNav {
-    justify-content: center;
   }
 }
 
 @media (min-width: 1101px) and (max-width: 1320px) {
   .inner {
-    grid-template-columns: minmax(11.5rem, 13.5rem) minmax(0, 1fr) auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     padding:
-      0.35rem
-      clamp(1.7rem, 2.6vw, 2.8rem)
+      0.3rem
+      clamp(1.8rem, 2.8vw, 3rem)
       0.4rem
-      clamp(1.55rem, 2.4vw, 2.3rem);
+      clamp(1.2rem, 1.8vw, 1.8rem);
   }
 
   .desktopNav {
@@ -322,36 +368,73 @@
     font-size: 0.72rem;
   }
 
-  .desktopActions .phone { display: none; }
-  .brandName { font-size: 1.85rem; }
-  .brandWord { font-size: 0.62rem; margin-left: 1.95rem; }
-  .brandTag { font-size: 0.4rem; }
+  .desktopActions .phone {
+    display: none;
+  }
+
+  .logo {
+    width: clamp(7.6rem, 11vw, 8.8rem);
+  }
 }
 
-@media (min-width: 1321px) and (max-width: 1599px) {
+/* Mid desktop: phone still too wide vs centered nav — hide until 1672. */
+@media (min-width: 1321px) and (max-width: 1671px) {
   .inner {
-    grid-template-columns: minmax(12.5rem, 15rem) minmax(0, 1fr) auto;
-    padding-inline: clamp(1.9rem, 2.4vw, 3rem) clamp(2rem, 2.6vw, 3.6rem);
+    padding-inline: clamp(1.55rem, 2vw, 2.5rem) clamp(2.4rem, 3.2vw, 4.1rem);
   }
 
   .desktopNav {
-    gap: clamp(0.55rem, 0.9vw, 1.1rem);
+    left: calc(50% - clamp(1.2rem, 1.4vw, 1.7rem));
+    gap: clamp(0.48rem, 0.7vw, 0.9rem);
+    font-size: clamp(0.72rem, 0.7vw, 0.84rem);
+  }
+
+  .desktopActions {
+    gap: clamp(0.38rem, 0.5vw, 0.65rem);
+  }
+
+  .desktopActions .phone {
+    display: none;
+  }
+}
+
+@media (min-width: 1672px) and (max-width: 1919px) {
+  .inner {
+    padding-inline: clamp(1.7rem, 2vw, 2.5rem) clamp(2.7rem, 3.3vw, 4.4rem);
+  }
+
+  .desktopNav {
+    left: calc(50% - clamp(1.35rem, 1.45vw, 1.75rem));
+    gap: clamp(0.52rem, 0.8vw, 1rem);
+  }
+
+  .desktopActions {
+    gap: clamp(0.42rem, 0.55vw, 0.75rem);
   }
 }
 
 @media (max-width: 1100px) {
   .header {
-    background: url("/images/header-parchment-v1.webp") center center / 100% 180% no-repeat;
-    border-bottom: 0;
+    overflow-x: clip;
   }
 
-  .brandTag {
-    display: none;
+  .parchment {
+    inset: 0;
   }
 
-  .brandWord { margin-left: 1.7rem; }
-  .brandName { font-size: clamp(1.45rem, 5vw, 1.9rem); }
-  .brandText { padding-top: 0.08rem; }
+  .parchmentImage {
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .inner {
+    width: min(100% - 1rem, var(--gor-content-max));
+    padding-block: 0.5rem;
+  }
+
+  .logo {
+    width: clamp(7.6rem, 42vw, 9.4rem);
+  }
 
   .mobileActions .socialLink {
     display: flex;
@@ -367,16 +450,33 @@
   }
 
   .mobileActions .brandIcon,
-  .socialPendingRow .brandIcon { width: 1.35rem; height: 1.35rem; }
+  .socialPendingRow .brandIcon {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
 
+  .backdrop,
   .backdropOpen {
     display: block;
     position: fixed;
     inset: 0;
     z-index: 40;
     background: color-mix(in srgb, var(--gor-ink) 45%, transparent);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 280ms cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 280ms linear;
   }
 
+  .backdropOpen {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .panel,
   .panelOpen {
     display: flex;
     position: fixed;
@@ -388,10 +488,41 @@
     flex-direction: column;
     gap: var(--gor-space-6);
     padding: var(--gor-space-5);
-    background: var(--gor-parchment-light);
+    background:
+      linear-gradient(
+        180deg,
+        #fffaf0 0%,
+        var(--gor-parchment-light) 42%,
+        color-mix(in srgb, var(--gor-parchment) 88%, #e7d3ad) 100%
+      );
     border-left: 1px solid var(--gor-parchment-edge);
-    box-shadow: var(--gor-shadow);
+    box-shadow: -12px 0 32px color-mix(in srgb, var(--gor-ink) 18%, transparent);
+    transform: translateX(104%);
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      transform 340ms cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 340ms linear;
   }
+
+  .panelOpen {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .panelOpen .mobileNav a,
+  .panelOpen .mobileActions > * {
+    animation: menu-item-in 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .panelOpen .mobileNav a:nth-child(1) { animation-delay: 60ms; }
+  .panelOpen .mobileNav a:nth-child(2) { animation-delay: 110ms; }
+  .panelOpen .mobileNav a:nth-child(3) { animation-delay: 160ms; }
+  .panelOpen .mobileActions > *:nth-child(1) { animation-delay: 200ms; }
+  .panelOpen .mobileActions > *:nth-child(2) { animation-delay: 240ms; }
+  .panelOpen .mobileActions > *:nth-child(3) { animation-delay: 280ms; }
+  .panelOpen .mobileActions > *:nth-child(4) { animation-delay: 320ms; }
 
   .panelHead {
     display: flex;
@@ -409,12 +540,13 @@
   .mobileNav {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.35rem;
   }
 
   .mobileNav a {
-    font-size: 1.1rem;
-    padding-block: 0.35rem;
+    font-size: 1.12rem;
+    padding-block: 0.55rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--gor-parchment-edge) 70%, transparent);
   }
 
   .mobileActions {
@@ -425,8 +557,36 @@
   }
 }
 
+@keyframes menu-item-in {
+  from {
+    opacity: 0;
+    transform: translateX(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .cta {
+  .cta,
+  .menuToggle,
+  .close,
+  .burgerLine,
+  .backdrop,
+  .backdropOpen,
+  .panel,
+  .panelOpen {
     transition: none;
+  }
+
+  .panelOpen .mobileNav a,
+  .panelOpen .mobileActions > * {
+    animation: none;
+  }
+
+  .menuToggle:active,
+  .close:active {
+    transform: none;
   }
 }

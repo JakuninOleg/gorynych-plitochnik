@@ -10,278 +10,331 @@
   display: none;
 }
 
-/* Mobile/tablet portrait art — only requested inside this media query. */
-
 .inner {
   position: relative;
   width: min(100% - 2rem, 78rem);
   margin-inline: auto;
 }
 
+.stage {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.15rem;
+  text-align: left;
+}
+
+/* One content group: left-aligned inside, centered as a unit on desktop. */
+.cluster {
+  display: flex;
+  width: max-content;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.15rem;
+  text-align: left;
+}
+
 .copy {
   display: flex;
   max-width: 28rem;
   flex-direction: column;
-  gap: 0.85rem;
-}
-
-.aside {
-  margin: 0;
-  color: var(--gor-ink-muted);
-  font-family: var(--gor-font-hand);
-  font-size: 1.2rem;
-  letter-spacing: 0.02em;
+  align-items: flex-start;
+  gap: 0.9rem;
 }
 
 .title {
   margin: 0;
-  font-family: var(--gor-font-fairy);
-  font-size: clamp(1.9rem, 3.8vw, 3.15rem);
-  font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -0.01em;
+  font-family: var(--gor-font-hero);
+  font-size: clamp(2.05rem, 6.4vw, 2.7rem);
+  font-weight: 900;
+  font-synthesis: none;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.titleLine {
+  display: block;
 }
 
 .accent {
+  display: inline-block;
+  width: fit-content;
   color: var(--gor-accent-word);
+  text-decoration: none;
 }
 
 .lead {
   margin: 0;
-  color: var(--gor-ink-muted);
-  font-size: clamp(1rem, 1.35vw, 1.15rem);
-  line-height: 1.5;
-  max-width: 28ch;
+  max-width: 28rem;
+  color: var(--gor-ink);
+  font-family: var(--gor-font-story);
+  font-size: clamp(1.2rem, 3.5vw, 1.4rem);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
 }
 
-.leadLine { display: inline; }
+.leadPlace {
+  display: block;
+  margin-top: 0.2rem;
+}
+
+/* Underline only the offer line, exact text width — thin bar, not a width-% blob. */
+.leadStrong {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  padding-bottom: 0.28em;
+  text-decoration: none;
+}
+
+.leadStrong::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0.02em;
+  height: 3px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--gor-cta) 82%, var(--gor-gold));
+  pointer-events: none;
+}
 
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  width: auto;
 }
 
 .primary,
 .secondary {
+  --btn-shadow: 0 8px 18px color-mix(in srgb, var(--gor-ink) 16%, transparent);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.85rem;
-  padding: 0.7rem 1.2rem;
   gap: 0.55rem;
-  border-radius: 3px;
+  min-height: 3rem;
+  padding: 0.75rem 1.2rem;
+  border-radius: 0.7rem;
+  font-family: var(--gor-font-body);
+  font-size: 0.95rem;
   font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1;
   text-decoration: none;
-  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+  box-shadow: var(--btn-shadow);
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease,
+    box-shadow 220ms ease;
+  will-change: transform;
 }
 
 .primary {
-  border: 1.5px solid color-mix(in srgb, var(--gor-ink) 45%, var(--gor-cta));
-  background: var(--gor-cta);
+  border: 1.5px solid color-mix(in srgb, #3f0705 35%, var(--gor-cta));
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, #fff2d8 16%, var(--gor-cta)) 0%,
+      var(--gor-cta) 46%,
+      color-mix(in srgb, #2a0604 18%, var(--gor-cta)) 100%
+    );
   color: #fff8ee;
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, #fff2d8 22%, transparent);
 }
 
 .primary:hover {
-  background: var(--gor-cta-hover);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, #fff2d8 12%, var(--gor-cta-hover)) 0%,
+      var(--gor-cta-hover) 48%,
+      color-mix(in srgb, #1a0302 22%, var(--gor-cta-hover)) 100%
+    );
+  box-shadow:
+    0 12px 24px color-mix(in srgb, var(--gor-cta) 28%, transparent),
+    0 2px 0 color-mix(in srgb, #fff2d8 18%, transparent) inset;
 }
 
 .secondary {
-  border: 1.5px solid color-mix(in srgb, var(--gor-ink) 45%, var(--gor-parchment-edge));
-  background: color-mix(in srgb, var(--gor-parchment-light) 92%, white);
+  border: 1.5px solid color-mix(in srgb, var(--gor-ink) 55%, var(--gor-parchment-edge));
+  background:
+    linear-gradient(
+      180deg,
+      #fffaf0 0%,
+      var(--gor-parchment-light) 55%,
+      color-mix(in srgb, var(--gor-parchment) 70%, #e7d3ad) 100%
+    );
   color: var(--gor-ink);
 }
 
 .secondary:hover {
-  border-color: var(--gor-gold);
-  background: color-mix(in srgb, var(--gor-parchment-light) 80%, white);
+  border-color: color-mix(in srgb, var(--gor-ink) 70%, var(--gor-gold));
+  background:
+    linear-gradient(
+      180deg,
+      #fffdf8 0%,
+      color-mix(in srgb, var(--gor-parchment-light) 85%, white) 60%,
+      var(--gor-parchment) 100%
+    );
+  box-shadow:
+    0 12px 22px color-mix(in srgb, var(--gor-ink) 14%, transparent),
+    0 1px 0 color-mix(in srgb, white 55%, transparent) inset;
 }
 
-.proof {
-  display: none;
-  margin: 0.55rem 0 0;
-  padding: 0;
-  list-style: none;
-  gap: 0.55rem 1rem;
-  color: var(--gor-ink-muted);
-  font-family: var(--gor-font-display);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+.primary:focus-visible,
+.secondary:focus-visible {
+  outline: 2px solid var(--gor-cta);
+  outline-offset: 3px;
 }
 
-.proof li {
-  position: relative;
-  padding-left: 0.85rem;
+.primary svg,
+.secondary svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 auto;
 }
 
-.proof li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.45em;
-  width: 0.35rem;
-  height: 0.35rem;
-  border-radius: 999px;
-  background: var(--gor-cta);
+.arrow {
+  margin-left: 0.1rem;
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.primary:hover .arrow {
+  transform: translateX(3px);
 }
 
 .plaque {
   display: none;
 }
 
-.primary svg,
-.secondary svg { width: 1.1rem; height: 1.1rem; flex: 0 0 auto; }
-
-.callouts { display: none; }
+.calloutsSr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 
 @media (min-width: 1101px) {
   .hero {
-    height: 50.5%;
+    height: 65%;
     min-height: 0;
   }
 
+  /*
+    Flow layout in the parchment column only (~7%–45% of the world art).
+    No absolute/translate for the text block — it cannot slide onto the dragon.
+  */
   .inner {
+    display: flex;
     width: 100%;
     height: 100%;
+    align-items: center;
+    box-sizing: border-box;
+    padding:
+      calc(clamp(5.5rem, 7vw, 8.5rem) + 2.5rem)
+      0
+      clamp(3.5rem, 5vw, 6rem);
+  }
+
+  .stage {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    width: min(38%, 26rem);
+    max-width: 26rem;
+    margin-left: max(1.25rem, 21.5%);
+    margin-right: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    text-align: left;
+  }
+
+  .cluster {
+    width: max-content;
+    max-width: 100%;
+    gap: clamp(1.1rem, 1.5vw, 1.65rem);
   }
 
   .copy {
-    position: absolute;
-    top: clamp(5.5rem, 8vw, 10rem);
-    left: 21.5%;
-    width: clamp(20rem, 23vw, 31rem);
-    max-width: none;
-    gap: 0.1rem;
-  }
-
-  .actions {
-    position: absolute;
-    top: clamp(19rem, 21.3vw, 34rem);
-    left: 22.2%;
-    width: clamp(20rem, 24vw, 33rem);
-    flex-wrap: nowrap;
-    gap: clamp(0.85rem, 1vw, 1.3rem);
+    max-width: 100%;
+    width: max-content;
+    align-items: flex-start;
+    gap: clamp(0.85rem, 1.1vw, 1.2rem);
   }
 
   .title {
-    width: 114%;
-    font-size: clamp(2.35rem, 2.55vw, 3.8rem);
-    line-height: 0.99;
-    letter-spacing: -0.055em;
-    transform: rotate(-1.1deg) scaleX(0.88);
-    transform-origin: left top;
-    -webkit-text-stroke: 0.3px currentColor;
+    font-size: clamp(2.2rem, 2.6vw, 3.35rem);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
   }
 
-  .titleLine,
-  .accent {
-    display: block;
+  .titleLine {
     white-space: nowrap;
   }
 
-  .accent {
-    font-size: 1.42em;
-    line-height: 0.88;
-    margin-left: 0.4em;
-    letter-spacing: -0.07em;
-    -webkit-text-stroke-color: var(--gor-accent-word);
-  }
-
-  .proof {
-    display: none;
-  }
-
   .lead {
-    font-family: var(--gor-font-display);
-    font-size: clamp(1.05rem, 1.05vw, 1.25rem);
-    line-height: 1.26;
-    max-width: 33ch;
-    margin-left: clamp(1.25rem, 1.8vw, 2rem);
-    color: var(--gor-ink);
-    font-weight: 700;
+    max-width: 100%;
+    margin: 0;
+    font-size: clamp(1.15rem, 1.2vw, 1.4rem);
+    line-height: 1.3;
+  }
+
+  .leadPlace {
+    margin-top: 0.28rem;
+  }
+
+  .actions {
+    width: auto;
+    max-width: 100%;
+    margin-top: 0.05rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: clamp(0.65rem, 0.85vw, 1rem);
   }
 
   .primary,
   .secondary {
-    font-family: var(--gor-font-body);
-    font-size: clamp(0.68rem, 0.69vw, 0.9rem);
-    min-height: clamp(2.4rem, 2.4vw, 3.5rem);
-    padding: 0.45rem clamp(0.55rem, 0.6vw, 0.95rem);
-    gap: 0.35rem;
+    min-height: clamp(2.6rem, 2.7vw, 3.25rem);
+    padding: 0.65rem clamp(0.9rem, 1.05vw, 1.25rem);
+    font-size: clamp(0.76rem, 0.76vw, 0.92rem);
+    border-radius: 0.75rem;
     white-space: nowrap;
   }
 
-  .primary { min-width: clamp(11.8rem, 11.6vw, 17rem); }
-  .secondary { min-width: clamp(8.8rem, 8.5vw, 13rem); }
-
-  .plaque {
-    display: block;
-    position: absolute;
-    left: 76.5%;
-    top: 71%;
-    width: 9.5%;
-    margin: 0;
-    color: #2a1c12;
-    font-family: var(--gor-font-display);
-    font-size: clamp(0.62rem, 0.68vw, 0.95rem);
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    line-height: 1.15;
-    text-align: center;
-    text-transform: uppercase;
-    transform: rotate(-3deg);
-    padding: 0.1rem 0.25rem;
-    border: 1px solid #785635;
-    border-radius: 3px;
-    background: #e4c390e8;
-    pointer-events: none;
-  }
-}
-
-@media (min-width: 1800px) {
-  .copy,
-  .actions {
-    left: 21.5%;
+  .primary svg,
+  .secondary svg {
+    width: clamp(1.05rem, 1.05vw, 1.2rem);
+    height: clamp(1.05rem, 1.05vw, 1.2rem);
   }
 
-  .actions { left: 22.2%; }
+}
 
-  .callouts {
-    display: block;
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    pointer-events: none;
-    color: #301e16;
-    font-family: var(--gor-font-hand);
-    font-size: clamp(1rem, 0.82vw, 1.28rem);
-    font-weight: 700;
-    line-height: 0.95;
-    text-align: center;
+@media (min-width: 1101px) and (max-width: 1320px) {
+  .stage {
+    width: min(42%, 24rem);
+    margin-left: 14.5%;
   }
 
-  .callouts span { position: absolute; text-shadow: 0 1px #fff0d3; }
-  .callouts span::after { content: '↘'; display: block; font-size: 1.35em; line-height: 0.8; }
-  .calloutLevel { left: 42%; top: 20%; transform: rotate(-8deg); }
-  .calloutTile { left: 69%; top: 19%; transform: rotate(6deg); }
-  .calloutFire { left: 81%; top: 22%; transform: rotate(-8deg); }
-}
+  .actions { gap: 0.45rem; }
 
-@media (min-width: 1471px) {
-  .leadLine { display: block; white-space: nowrap; }
-}
+  .primary,
+  .secondary {
+    padding-inline: 0.7rem;
+    font-size: 0.72rem;
+  }
 
-@media (min-width: 1101px) and (max-width: 1470px) {
-  .title { width: 130%; transform: rotate(-1.1deg) scaleX(0.76); }
-  .lead { max-width: 24ch; }
-  .actions {
-    top: clamp(19.8rem, 24vw, 23rem);
-    width: clamp(13.5rem, 20vw, 18rem);
-    flex-wrap: wrap;
-    gap: 0.6rem;
+  .title {
+    font-size: clamp(2rem, 2.8vw, 2.5rem);
   }
 }
 
@@ -321,22 +374,27 @@
     padding: 1rem 0 1.4rem;
   }
 
+  .stage {
+    flex: 1 1 auto;
+    justify-content: flex-start;
+    gap: 1rem;
+    min-height: 0;
+  }
+
   .copy {
     max-width: none;
-    padding: 0.2rem 0.1rem 0;
+    padding: 0.15rem 0.05rem 0;
   }
 
   .actions {
     margin-top: auto;
-    padding-bottom: 0.35rem;
+    padding-bottom: 0.2rem;
   }
 
-  .lead {
-    max-width: 36ch;
+  .primary,
+  .secondary {
+    flex: 1 1 12rem;
   }
-
-  .titleLine,
-  .accent { display: inline; white-space: normal; }
 }
 
 @media (min-width: 701px) and (max-width: 1100px) {
@@ -351,7 +409,12 @@
 
 @media (prefers-reduced-motion: reduce) {
   .primary,
-  .secondary {
+  .secondary,
+  .arrow {
     transition: none;
+  }
+
+  .primary:hover .arrow {
+    transform: none;
   }
 }

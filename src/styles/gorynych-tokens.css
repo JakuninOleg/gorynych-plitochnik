@@ -9,11 +9,12 @@
   --gor-gold: #bd9247;
   --gor-parchment-edge: #a78559;
   --gor-sky: #658ca1;
-  --gor-accent-word: #64100e;
+  --gor-accent-word: #8b1712;
 
   --gor-font-display: "PT Serif", "Times New Roman", "Noto Serif", serif;
   --gor-font-story: "Gabriela", "PT Serif", serif;
-  --gor-font-fairy: "Vollkorn", "Yeseva One", serif;
+  --gor-font-hero: "Alegreya", "Vollkorn", "Times New Roman", serif;
+  --gor-font-fairy: "Alegreya", "Vollkorn", "Yeseva One", serif;
   --gor-font-ornament: "Vollkorn", "PT Serif", serif;
   --gor-font-body: "Inter Variable", "Segoe UI", sans-serif;
   --gor-font-hand: "Caveat Variable", cursive;
