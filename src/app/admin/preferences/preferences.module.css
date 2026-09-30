@@ -1,0 +1,10 @@
+.stack { display: grid; gap: 20px; max-width: 960px; }
+.panel { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 28px; border: 1px solid var(--color-border); border-radius: 10px; background: var(--color-surface); }
+.panel > div { max-width: 52ch; }
+.panel h2 { margin: 0; font-size: 16px; font-weight: 500; }
+.panel p { margin: 10px 0 0; color: var(--color-text-secondary); font-size: 13px; line-height: 1.7; }
+.panel > a { flex-shrink: 0; color: var(--color-text); font-size: 13px; text-underline-offset: 4px; }
+.panel > button { flex-shrink: 0; }
+.panel select { min-height: 44px; width: 180px; border: 1px solid var(--color-border-strong); border-radius: 8px; padding: 8px; background: var(--color-surface); color: var(--color-text); font-size: 13px; }
+.caption { margin: 8px 0; color: var(--color-text-secondary); font-size: 12px; }
+@media (max-width: 767px) { .panel { align-items: flex-start; flex-direction: column; gap: 20px; padding: 24px; } }

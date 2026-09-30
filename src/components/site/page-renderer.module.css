@@ -1,0 +1,61 @@
+.site { min-height: 100dvh; background: var(--color-surface); color: var(--color-text); }
+.previewBar { min-height: 3.25rem; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); background: var(--color-warning-bg); color: var(--color-warning); padding: 0 clamp(var(--space-4), 4vw, var(--space-10)); font-size: var(--text-xs); font-weight: var(--weight-semibold); }
+.previewBar span, .previewBar a { display: flex; align-items: center; gap: var(--space-2); }
+.previewBar a { color: inherit; text-underline-offset: 3px; }
+.siteHeader { min-height: 5.5rem; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--space-8); border-bottom: 1px solid var(--color-border); padding: 0 clamp(var(--space-5), 5vw, var(--space-16)); }
+.logo { width: 3.5rem; height: 3.5rem; display: grid; place-items: center; color: var(--color-text); text-decoration: none; }
+.siteHeader nav { display: flex; justify-content: center; gap: var(--space-8); }
+.siteHeader nav a, .contact { color: var(--color-text); font-size: var(--text-sm); text-decoration: none; }
+.contact { font-weight: var(--weight-semibold); text-decoration: underline; text-underline-offset: 4px; }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(22rem, 42%); min-height: calc(100dvh - 5.5rem); border-bottom: 1px solid var(--color-border); }
+.heroCopy { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(var(--space-8), 7vw, var(--space-20)); }
+.heroCopy > p { margin: 0; color: var(--color-text-secondary); font-size: var(--text-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; }
+.heroCopy h1 { max-width: 12ch; margin: var(--space-12) 0; font: var(--weight-semibold) clamp(3.2rem, 7vw, 7.4rem) / .96 var(--font-display); letter-spacing: -.065em; }
+.heroCopy > div { display: grid; grid-template-columns: minmax(0, 29rem) auto; align-items: end; gap: var(--space-8); }
+.heroCopy > div > span { color: var(--color-text-secondary); font-size: var(--text-lg); line-height: var(--leading-relaxed); }
+.heroCopy > div > a { min-height: 3.5rem; display: inline-flex; align-items: center; justify-content: center; gap: var(--space-3); border-radius: var(--radius-md); background: var(--color-action); color: var(--color-text-inverse); padding: 0 var(--space-5); font-weight: var(--weight-semibold); text-decoration: none; white-space: nowrap; }
+.hero > img, .noImage { width: 100%; height: 100%; object-fit: cover; background: var(--color-surface-muted); }
+.noImage { display: grid; place-items: center; color: var(--color-text-secondary); }
+.statement { display: grid; grid-template-columns: 5rem minmax(15rem, 1fr) minmax(15rem, 1fr); gap: var(--space-12); padding: clamp(var(--space-12), 8vw, var(--space-20)); }
+.statement > span { width: 3rem; height: 3rem; display: grid; place-items: center; border: 1px solid var(--color-border); border-radius: 50%; font-size: var(--text-xs); }
+.statement h2 { max-width: 13ch; margin: 0; font: var(--weight-semibold) var(--text-3xl) / var(--leading-tight) var(--font-display); letter-spacing: var(--tracking-tight); }
+.statement p { max-width: 40rem; margin: 0; color: var(--color-text-secondary); font-size: var(--text-lg); line-height: var(--leading-relaxed); }
+.approach { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+.approach > div { min-height: 15rem; padding: var(--space-8); border-right: 1px solid var(--color-border); }
+.approach > div:last-child { border-right: 0; }
+.approach span { font-weight: var(--weight-semibold); }
+.approach p { max-width: 20rem; margin: var(--space-12) 0 0; color: var(--color-text-secondary); line-height: var(--leading-relaxed); }
+.footer { min-height: 28rem; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); background: var(--color-surface-inverse); color: var(--color-text-inverse); padding: clamp(var(--space-10), 8vw, var(--space-20)); }
+.footer > div:last-child { display: grid; align-content: end; gap: var(--space-3); color: color-mix(in oklch, currentColor 70%, transparent); }
+.footer a { color: var(--color-text-inverse); font-size: var(--text-lg); }
+.footerBrand { --color-text: var(--color-text-inverse); display: inline-block; margin-bottom: 24px; }
+.footer h2 { margin: var(--space-12) 0 0; font: var(--weight-semibold) var(--text-3xl) / var(--leading-tight) var(--font-display); letter-spacing: var(--tracking-tight); }
+.loading, .notFound { min-height: 100dvh; display: grid; place-items: center; align-content: center; gap: var(--space-4); padding: var(--space-6); text-align: center; }
+.notFound > span { color: var(--color-text-secondary); font-size: var(--text-sm); }
+.notFound h1, .notFound p { margin: 0; }
+.notFound p { color: var(--color-text-secondary); }
+.notFound a { color: var(--color-text); font-weight: var(--weight-semibold); }
+
+@media (max-width: 63.99rem) {
+  .hero { grid-template-columns: 1fr; }
+  .heroCopy { min-height: 40rem; }
+  .hero > img, .noImage { min-height: 32rem; }
+  .statement { grid-template-columns: 4rem 1fr; }
+  .statement p { grid-column: 2; }
+}
+@media (max-width: 47.99rem) {
+  .previewBar { align-items: flex-start; flex-direction: column; padding-top: var(--space-3); padding-bottom: var(--space-3); }
+  .siteHeader { grid-template-columns: auto 1fr; min-height: 4.5rem; }
+  .siteHeader nav { display: none; }
+  .contact { justify-self: end; }
+  .logo { width: 3rem; height: 3rem; }
+  .heroCopy { min-height: 34rem; padding: var(--space-8) var(--space-5); }
+  .heroCopy h1 { font-size: clamp(2.8rem, 15vw, 4.6rem); }
+  .heroCopy > div { grid-template-columns: 1fr; }
+  .hero > img, .noImage { min-height: 22rem; }
+  .statement { grid-template-columns: 1fr; gap: var(--space-6); padding: var(--space-12) var(--space-5); }
+  .statement p { grid-column: 1; }
+  .approach { grid-template-columns: 1fr; }
+  .approach > div { min-height: 11rem; border-right: 0; border-bottom: 1px solid var(--color-border); }
+  .footer { grid-template-columns: 1fr; min-height: 34rem; padding: var(--space-12) var(--space-5); }
+}

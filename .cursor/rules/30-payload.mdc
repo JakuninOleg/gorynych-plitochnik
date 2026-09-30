@@ -1,0 +1,21 @@
+---
+description: Payload CMS integration, security, migration, and extension rules
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# Payload CMS
+
+- Pin a supported Payload, Next.js, and React combination and verify APIs against that exact version.
+- Use documented config, custom components/views, hooks, access controls, endpoints, and plugins.
+- Never patch Payload internals, edit `node_modules`, or depend on undocumented DOM structure.
+- Enforce access control on the server for collections, globals, custom endpoints, and dashboard queries.
+- Treat Local API authorization as explicit: pass the user and disable access override where user permissions apply.
+- Keep roles and permissions centralized, typed, deny-by-default, and covered by authorization tests.
+- Use Payload drafts and versions for editorial state; do not recreate those mechanisms in parallel.
+- Protect draft previews with short-lived authorization and prevent draft content from public responses and caches.
+- Define schema changes through reviewed migrations with upgrade and rollback notes.
+- Validate file type, size, ownership, alt text, and deletion references for media workflows.
+- Keep the OJ module configurable for branding, routes, collection slugs, modules, support links, and site URL.
+- Do not expose counts, recent items, or search results that include documents the current user cannot read.
+- Preserve generated types and regenerate them whenever schemas change; CI must detect stale generated types.

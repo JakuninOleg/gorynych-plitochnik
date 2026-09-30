@@ -1,0 +1,3 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 840" role="img" aria-labelledby="title desc">
+  <title id="title">Рабочий ритм</title><desc id="desc">Модульная сетка с контрастными зелёными плоскостями</desc>
+  <rect width="1280" height="840" fill="#e8ebe5"/><rect x="64" y="64" width="520" height="712" fill="#173a2d"/><rect x="618" y="64" width="598" height="330" fill="#c9d3ca"/><rect x="618" y="426" width="284" height="350" fill="#f6f5ef"/><rect x="934" y="426" width="282" height="350" fill="#738d7c"/><path d="M64 590h520" stroke="#e8ebe5" stroke-width="2"/><circle cx="324" cy="330" r="112" fill="#dfe8df"/></svg>

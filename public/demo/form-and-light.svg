@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 840" role="img" aria-labelledby="title desc">
+  <title id="title">Форма и свет</title><desc id="desc">Абстрактная композиция из светлых геометрических плоскостей</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e9e8e2"/><stop offset="1" stop-color="#b8c0bb"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#d5ddd8"/><stop offset="1" stop-color="#7b8b83"/></linearGradient></defs>
+  <rect width="1280" height="840" fill="url(#bg)"/><path d="M720 0h560v840H520z" fill="#d8d6cf"/><path d="M840 250h440v590H680z" fill="#252b29"/><path d="M875 285h350v420H770z" fill="url(#glass)"/><circle cx="250" cy="220" r="118" fill="#f5f3ed" opacity=".72"/><path d="M0 650 420 430l250 410H0z" fill="#6c7a72" opacity=".55"/></svg>

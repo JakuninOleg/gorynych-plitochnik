@@ -1,0 +1,230 @@
+.section {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(3rem, 7vw, 5.5rem);
+  background:
+    linear-gradient(
+      180deg,
+      var(--gor-parchment) 0%,
+      var(--gor-parchment-light) 48%,
+      var(--gor-parchment) 100%
+    );
+}
+
+.backdrop {
+  display: none;
+}
+
+.backdropShade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--gor-parchment) 48%, transparent) 0%,
+      color-mix(in srgb, var(--gor-parchment-light) 32%, transparent) 42%,
+      color-mix(in srgb, var(--gor-parchment) 58%, transparent) 100%
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--gor-parchment) 22%, transparent) 0%,
+      transparent 16%,
+      transparent 84%,
+      color-mix(in srgb, var(--gor-parchment) 22%, transparent) 100%
+    );
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 2rem, 78rem);
+  margin-inline: auto;
+}
+
+.intro {
+  max-width: 40rem;
+  margin-inline: auto;
+  margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+  text-align: center;
+}
+
+.kicker {
+  margin: 0 0 0.55rem;
+  color: var(--gor-ink-muted);
+  font-family: var(--gor-font-hand);
+  font-size: 1.25rem;
+}
+
+.title {
+  margin: 0 0 0.75rem;
+  font-family: var(--gor-font-display);
+  font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.lead {
+  margin: 0;
+  color: var(--gor-ink-muted);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.85rem, 1.6vw, 1.25rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1.5px solid color-mix(in srgb, var(--gor-ink) 48%, var(--gor-parchment-edge));
+  border-radius: 2px;
+  background:
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--gor-parchment-light) 94%, white),
+      var(--gor-parchment)
+    );
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--gor-ink) 12%, transparent);
+}
+
+.art {
+  aspect-ratio: 4 / 3;
+  background-color: color-mix(in srgb, var(--gor-sky) 18%, var(--gor-parchment));
+  background-image: url("/images/process-heads-v1.webp");
+  background-repeat: no-repeat;
+  background-size: 300% 100%;
+  border-bottom: 1px solid color-mix(in srgb, var(--gor-ink) 18%, var(--gor-parchment-edge));
+}
+
+@media (max-width: 900px) {
+  .art {
+    background-image: url("/images/process-heads-small-v1.webp");
+  }
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
+  padding: 1.1rem 1.15rem 1.3rem;
+}
+
+.medal {
+  display: inline-grid;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border: 1.5px solid color-mix(in srgb, var(--gor-ink) 35%, var(--gor-gold));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--gor-parchment-light) 70%, var(--gor-gold));
+  color: var(--gor-ink);
+  font-family: var(--gor-font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.cardTitle {
+  margin: 0;
+  font-family: var(--gor-font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+.cardText {
+  margin: 0;
+  color: var(--gor-ink-muted);
+  line-height: 1.55;
+}
+
+@media (min-width: 901px) {
+  .backdrop {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url("/images/process-backdrop-v1.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* Compact tablet: side-by-side art + copy, smaller character crop. */
+@media (min-width: 701px) and (max-width: 900px) {
+  .intro {
+    text-align: left;
+    margin-inline: 0;
+    max-width: 36rem;
+    margin-bottom: 1.35rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .card {
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 0;
+  }
+
+  .art {
+    flex: 0 0 clamp(11.5rem, 34%, 15rem);
+    aspect-ratio: auto;
+    align-self: stretch;
+    min-height: 8.75rem;
+    border-bottom: none;
+    border-right: 1px solid color-mix(in srgb, var(--gor-ink) 18%, var(--gor-parchment-edge));
+    background-size: 300% 110%;
+    background-position-y: 42%;
+  }
+
+  .body {
+    flex: 1;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.85rem 1rem 0.95rem;
+  }
+
+  .medal {
+    width: 2.1rem;
+    height: 2.1rem;
+    font-size: 0.78rem;
+  }
+
+  .cardTitle {
+    font-size: 1.2rem;
+  }
+
+  .cardText {
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+}
+
+@media (max-width: 700px) {
+  .intro {
+    text-align: left;
+    margin-inline: 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .art {
+    aspect-ratio: 5 / 3;
+  }
+}

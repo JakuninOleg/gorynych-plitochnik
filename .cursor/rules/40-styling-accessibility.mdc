@@ -1,0 +1,20 @@
+---
+description: OJ visual system, CSS architecture, responsive design, and accessibility
+globs: "**/*.{css,scss,tsx}"
+alwaysApply: false
+---
+
+# Styling and accessibility
+
+- Use CSS Modules for component styles and CSS custom properties for design tokens; do not introduce Tailwind.
+- Organize tokens as primitives, semantic roles, then component variables. Components consume semantic roles.
+- Limit global CSS to tokens, font setup, reset, document defaults, and deliberate Payload theme integration.
+- Do not target generated class names or fragile DOM ancestry. Document any necessary upstream override.
+- Support 1440px, 1024px, 390px, and fluid widths between them without clipped actions or hidden content.
+- Meet WCAG AA contrast. Never communicate status, errors, or selection by color alone.
+- Every interactive element needs visible hover, focus-visible, active, disabled, and loading states where relevant.
+- Respect `prefers-reduced-motion`; animation must clarify state and never block work.
+- Use a Cyrillic-capable, legally usable font with a resilient system fallback stack.
+- Keep touch targets at least 44px where practical and preserve zoom and text resizing.
+- Tables need a deliberate narrow-screen strategy; do not silently remove columns containing required decisions.
+- Test keyboard navigation, focus trapping/restoration, form announcements, and meaningful accessible names.

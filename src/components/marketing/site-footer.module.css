@@ -1,0 +1,52 @@
+.footer {
+  border-top: 1px solid color-mix(in srgb, var(--gor-parchment-edge) 55%, transparent);
+  background: color-mix(in srgb, var(--gor-ink) 92%, #3a2418);
+  color: #f7e8cc;
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: min(100% - 2rem, var(--gor-content-max));
+  margin-inline: auto;
+  padding: 2rem 0 2.4rem;
+}
+
+.brand {
+  max-width: 28rem;
+}
+
+.name {
+  margin: 0 0 0.45rem;
+  font-family: var(--gor-font-display);
+  font-size: 1.25rem;
+}
+
+.note {
+  margin: 0;
+  color: color-mix(in srgb, #f7e8cc 78%, transparent);
+  line-height: 1.5;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.25rem;
+}
+
+.links a {
+  color: #fff2d8;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.links a:hover {
+  color: var(--gor-gold);
+}
+
+.footer :focus-visible {
+  outline-color: var(--gor-gold);
+}

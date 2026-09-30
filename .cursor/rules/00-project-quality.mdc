@@ -1,0 +1,20 @@
+---
+description: Non-negotiable engineering and delivery standards for OJ CMS
+alwaysApply: true
+---
+
+# OJ CMS quality bar
+
+- Treat OJ CMS as a maintained client product, not a demo or one-off website.
+- Prefer supported framework APIs and simple explicit code over clever abstractions.
+- Keep reusable OJ code, client configuration, and client-specific features separate.
+- Record material architecture decisions in `docs/decisions/` with context and trade-offs.
+- Pin runtime and dependency versions through the lockfile; review upgrades deliberately.
+- Never commit secrets, production data, generated credentials, or real customer content.
+- Do not merge placeholder behavior, dead controls, silent failures, or misleading demo data.
+- A TODO in a production path must link to a tracked task and state its operational impact.
+- Every feature defines loading, empty, error, permission-denied, and success behavior where relevant.
+- Make errors diagnosable without exposing secrets or internals to CMS users.
+- Preserve backward compatibility or ship an explicit migration and rollback note.
+- Completion requires typecheck, lint, relevant tests, production build, and browser verification.
+- Document checks that could not run and never call an unverified build production-ready.

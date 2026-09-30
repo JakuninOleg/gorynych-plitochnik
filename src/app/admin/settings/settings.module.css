@@ -1,0 +1,12 @@
+.form { display: grid; gap: var(--space-5); max-width: 62rem; }
+.panel { border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); }
+.panel > header { display: flex; align-items: flex-start; gap: var(--space-4); border-bottom: 1px solid var(--color-border); padding: var(--space-5); }
+.panel > header > span { width: 2.25rem; height: 2.25rem; flex: 0 0 auto; display: grid; place-items: center; border: 1px solid var(--color-border); border-radius: 50%; color: var(--color-text-secondary); font-size: var(--text-xs); }
+.panel h2, .panel p { margin: 0; }
+.panel h2 { font-size: var(--text-md); }
+.panel p { margin-top: var(--space-1); color: var(--color-text-secondary); font-size: var(--text-xs); }
+.fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); padding: var(--space-6); }
+.fields > label:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.actions { position: sticky; bottom: var(--space-4); display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: color-mix(in oklch, var(--color-surface) 94%, transparent); backdrop-filter: blur(14px); padding: var(--space-4); box-shadow: var(--shadow-md); }
+.actions span { color: var(--color-text-secondary); font-size: var(--text-xs); }
+@media (max-width: 47.99rem) { .fields { grid-template-columns: 1fr; padding: var(--space-5); } .fields > label { grid-column: auto !important; } .actions { align-items: stretch; flex-direction: column; } }

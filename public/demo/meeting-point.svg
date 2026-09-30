@@ -1,0 +1,3 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 840" role="img" aria-labelledby="title desc">
+  <title id="title">Точка встречи</title><desc id="desc">Тёмная геометрическая композиция с тёплым кругом</desc>
+  <rect width="1280" height="840" fill="#171b1a"/><path d="M0 0h730L510 840H0z" fill="#2e3834"/><path d="M790 0h490v840H560z" fill="#0f1211"/><circle cx="770" cy="390" r="150" fill="#c8a982"/><path d="M680 280h350v310H630z" fill="#53645c" opacity=".58"/></svg>

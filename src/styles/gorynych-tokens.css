@@ -1,0 +1,45 @@
+/* Public marketing tokens — scoped; do not override admin UI. */
+.gorynych {
+  --gor-ink: #211b17;
+  --gor-ink-muted: #4a4038;
+  --gor-parchment: #f4e4c7;
+  --gor-parchment-light: #fff2d8;
+  --gor-cta: #8b1712;
+  --gor-cta-hover: #64100e;
+  --gor-gold: #bd9247;
+  --gor-parchment-edge: #a78559;
+  --gor-sky: #658ca1;
+  --gor-accent-word: #64100e;
+
+  --gor-font-display: "Yeseva One", "Times New Roman", "Noto Serif", serif;
+  --gor-font-body: "Inter Variable", "Segoe UI", sans-serif;
+  --gor-font-hand: "Caveat Variable", cursive;
+
+  --gor-content-max: 92rem;
+  --gor-canvas-max: 90rem;
+  --gor-text-max: 36rem;
+
+  --gor-space-1: 0.25rem;
+  --gor-space-2: 0.5rem;
+  --gor-space-3: 0.75rem;
+  --gor-space-4: 1rem;
+  --gor-space-5: 1.25rem;
+  --gor-space-6: 1.5rem;
+  --gor-space-8: 2rem;
+  --gor-space-10: 2.5rem;
+  --gor-space-12: 3rem;
+  --gor-space-16: 4rem;
+
+  --gor-radius: 0.75rem;
+  --gor-shadow: 0 12px 32px color-mix(in srgb, var(--gor-ink) 14%, transparent);
+
+  color: var(--gor-ink);
+  font-family: var(--gor-font-body);
+  background: var(--gor-parchment);
+  min-height: 100dvh;
+}
+
+.gorynych :focus-visible {
+  outline: 2px solid var(--gor-cta);
+  outline-offset: 3px;
+}

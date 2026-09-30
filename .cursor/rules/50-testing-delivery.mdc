@@ -1,0 +1,20 @@
+---
+description: Test strategy and release gates for production changes
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# Testing and delivery
+
+- Test behavior and contracts; avoid snapshots that merely mirror component markup.
+- Unit-test domain rules, schema helpers, access decisions, and error mapping with meaningful edge cases.
+- Integration-test Payload collections, hooks, migrations, drafts, media references, and custom endpoints.
+- Browser-test the critical flow: sign in, edit, add media, save draft, preview, publish, and verify the public result.
+- Test administrator and editor permissions through direct API access as well as the visible UI.
+- Prove that anonymous users cannot access drafts and editors cannot administer users.
+- Cover failed validation, failed save, expired preview authorization, conflicting updates, and unsaved navigation.
+- Run accessibility checks and manually verify keyboard use on the editor, dialogs, navigation, and tables.
+- Required CI gates: install from lockfile, generated-type check, typecheck, lint, tests, and production build.
+- Keep tests deterministic: control time, IDs, fixtures, and external services; never depend on production systems.
+- A release requires migration rehearsal, backup/restore instructions, a rollback path, and documented known limits.
+- No unresolved critical/high defects; lower-risk accepted defects require an owner and explicit release note.

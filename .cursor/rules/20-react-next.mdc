@@ -1,0 +1,21 @@
+---
+description: React and Next.js component, rendering, and data-flow conventions
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# React and Next.js
+
+- Use functional components and current stable React/Next.js APIs supported by the pinned Payload version.
+- Default to Server Components; add `use client` only at the smallest interactive boundary.
+- Keep server-only code in explicit server modules and never import it into client components.
+- Prefer server data loading and URL state; do not duplicate server data into client state without a reason.
+- Use effects only to synchronize with external systems, not to derive render state.
+- Keep feature behavior with the feature; promote a component to shared UI only after real reuse.
+- Components must have a narrow typed API and no knowledge of client-specific collection slugs unless configured.
+- Use semantic HTML first. Interactive divs, custom keyboard emulation, and inaccessible icon-only actions are forbidden.
+- Provide visible labels, focus-visible styles, predictable tab order, and dialog focus restoration.
+- Add route-level loading, error, and not-found handling where the route can reach those states.
+- Validate mutations on the server, authorize them there, and return field-level errors for expected failures.
+- Avoid premature memoization; optimize only after measuring a real rendering or bundle problem.
+- Keep client bundles small and lazy-load heavy secondary UI such as media pickers when justified.

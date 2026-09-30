@@ -1,0 +1,7 @@
+.grid { display: grid; grid-template-columns: 18rem minmax(0, 34rem); align-items: start; gap: var(--space-5); }
+.panel { display: grid; gap: var(--space-5); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); padding: var(--space-6); }
+.panel:first-child { place-items: center; text-align: center; }
+.panel h2, .panel p { margin: 0; }
+.panel p { margin-top: var(--space-1); color: var(--color-text-secondary); }
+.avatar { width: 6rem; height: 6rem; display: grid; place-items: center; border-radius: 50%; background: var(--color-surface-inverse); color: var(--color-text-inverse); font: var(--weight-semibold) var(--text-xl) / 1 var(--font-display); }
+@media (max-width: 47.99rem) { .grid { grid-template-columns: 1fr; } }
