@@ -14,8 +14,8 @@
 
 @media (min-width: 1101px) {
   .world {
-    height: clamp(740px, 44.32vw, 1135px);
-    max-height: 1135px;
+    height: clamp(740px, 52.5vw, 1344px);
+    max-height: 1344px;
   }
 
   .main { height: 100%; }
@@ -26,9 +26,11 @@
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    background-image: url("/images/world-desktop-v9.webp");
+    background-image: url("/images/world-desktop-v10.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 94%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 94%, transparent 100%);
   }
 }

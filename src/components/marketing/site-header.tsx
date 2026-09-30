@@ -1,6 +1,7 @@
 'use client'
 
-import { X } from '@phosphor-icons/react'
+import { Phone, X } from '@phosphor-icons/react'
+import { motion, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
 import { useEffect, useId, useRef, useState } from 'react'
 import { siTelegram, siWhatsapp } from 'simple-icons'
@@ -13,6 +14,8 @@ const NAV = [
   { href: '#contacts', label: 'Контакты' },
 ] as const
 
+const CALL_URL = `${WHATSAPP_URL}?text=${encodeURIComponent('Здравствуйте! Хочу заказать звонок.')}`
+
 function BrandIcon({ type }: { type: 'whatsapp' | 'telegram' }) {
   return (
     <svg viewBox="0 0 24 24" className={styles.brandIcon} aria-hidden="true" focusable="false">
@@ -23,11 +26,19 @@ function BrandIcon({ type }: { type: 'whatsapp' | 'telegram' }) {
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
+  const reduceMotion = useReducedMotion()
   const panelId = useId()
   const closeRef = useRef<HTMLButtonElement>(null)
   const toggleRef = useRef<HTMLButtonElement>(null)
   const panelRef = useRef<HTMLDivElement>(null)
   const restoreFocusRef = useRef(false)
+
+  const ctaMotion = reduceMotion
+    ? {}
+    : {
+        whileHover: { y: -2, scale: 1.015 },
+        whileTap: { scale: 0.985 },
+      }
 
   useEffect(() => {
     if (!open && restoreFocusRef.current) {
@@ -149,9 +160,18 @@ export function SiteHeader() {
             </span>
           </div>
           <a className={styles.phone} href={PHONE_HREF}>{PHONE_LABEL}</a>
-          <a className={styles.cta} href={WHATSAPP_URL} rel="noopener noreferrer" target="_blank">
-            Обсудить проект
-          </a>
+          <motion.a
+            className={styles.cta}
+            href={CALL_URL}
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Написать Гору, чтобы заказать звонок"
+            {...ctaMotion}
+            transition={{ type: 'spring', stiffness: 420, damping: 28 }}
+          >
+            <Phone weight="fill" aria-hidden="true" />
+            <span>Заказать звонок</span>
+          </motion.a>
         </div>
 
         <button
@@ -216,15 +236,19 @@ export function SiteHeader() {
             Telegram скоро
           </span>
           <a className={styles.phone} href={PHONE_HREF} onClick={close}>{PHONE_LABEL}</a>
-          <a
+          <motion.a
             className={styles.cta}
-            href={WHATSAPP_URL}
+            href={CALL_URL}
             rel="noopener noreferrer"
             target="_blank"
+            title="Написать Гору, чтобы заказать звонок"
             onClick={close}
+            {...ctaMotion}
+            transition={{ type: 'spring', stiffness: 420, damping: 28 }}
           >
-            Обсудить проект
-          </a>
+            <Phone weight="fill" aria-hidden="true" />
+            <span>Заказать звонок</span>
+          </motion.a>
         </div>
       </div>
     </header>

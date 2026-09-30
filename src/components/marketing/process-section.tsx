@@ -46,7 +46,23 @@ export function ProcessSection() {
           {STEPS.map((step, index) => (
             <li key={step.title} className={styles.card}>
               <div className={styles.frame}>
-                <span className={styles.ribbon}>{step.title}</span>
+                <span className={styles.ribbon} aria-hidden="true">
+                  <span className={styles.ribbonText}>{step.title}</span>
+                  <span className={styles.ribbonArc}>
+                    {[...step.title].map((letter, letterIndex, letters) => {
+                      const offset = letterIndex - (letters.length - 1) / 2
+                      return (
+                        <span
+                          key={`${step.title}-${letterIndex}`}
+                          className={styles.ribbonLetter}
+                          style={{ transform: `translateY(${0.035 * offset * offset}em) rotate(${3 * offset}deg)` }}
+                        >
+                          {letter}
+                        </span>
+                      )
+                    })}
+                  </span>
+                </span>
                 <span className={styles.medal} aria-hidden="true">
                   {index + 1}
                 </span>

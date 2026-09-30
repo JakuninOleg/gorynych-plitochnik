@@ -224,13 +224,13 @@
 
 @media (min-width: 1101px) {
   .hero {
-    height: 65%;
+    height: 54%;
     min-height: 0;
   }
 
   /*
-    Flow layout in the parchment column only (~7%–45% of the world art).
-    No absolute/translate for the text block — it cannot slide onto the dragon.
+    The left edge follows the paper inset in the illustration. The stage is wide
+    enough for a single CTA row; its actual text and buttons stop before the tiles.
   */
   .inner {
     display: flex;
@@ -248,12 +248,12 @@
     position: relative;
     display: flex;
     box-sizing: border-box;
-    width: min(38%, 26rem);
-    max-width: 26rem;
-    margin-left: max(1.25rem, 21.5%);
+    width: 26.5%;
+    max-width: none;
+    margin-left: 20%;
     margin-right: auto;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     gap: 0;
     text-align: left;
@@ -273,7 +273,7 @@
   }
 
   .title {
-    font-size: clamp(2.2rem, 2.6vw, 3.35rem);
+    font-size: clamp(2.2rem, 2.55vw, 3.35rem);
     line-height: 0.98;
     letter-spacing: -0.025em;
   }
@@ -285,7 +285,7 @@
   .lead {
     max-width: 100%;
     margin: 0;
-    font-size: clamp(1.15rem, 1.2vw, 1.4rem);
+    font-size: clamp(1.1rem, 1.15vw, 1.4rem);
     line-height: 1.3;
   }
 
@@ -294,38 +294,43 @@
   }
 
   .actions {
-    width: auto;
+    /* max-content prefers one row; max-width:100% wraps inside the parchment column */
+    width: max-content;
     max-width: 100%;
     margin-top: 0.05rem;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: clamp(0.65rem, 0.85vw, 1rem);
+    gap: clamp(0.55rem, 0.7vw, 0.9rem);
   }
 
   .primary,
   .secondary {
-    min-height: clamp(2.6rem, 2.7vw, 3.25rem);
-    padding: 0.65rem clamp(0.9rem, 1.05vw, 1.25rem);
-    font-size: clamp(0.76rem, 0.76vw, 0.92rem);
+    flex: 0 0 auto;
+    min-height: clamp(2.5rem, 2.5vw, 3.1rem);
+    padding: 0.55rem clamp(0.7rem, 0.75vw, 0.9rem);
+    font-size: clamp(0.72rem, 0.68vw, 0.84rem);
     border-radius: 0.75rem;
     white-space: nowrap;
   }
 
   .primary svg,
   .secondary svg {
-    width: clamp(1.05rem, 1.05vw, 1.2rem);
-    height: clamp(1.05rem, 1.05vw, 1.2rem);
+    width: clamp(1rem, 1vw, 1.15rem);
+    height: clamp(1rem, 1vw, 1.15rem);
   }
-
 }
 
+/* Narrow desktop: cover crops art sides — more left inset, allow CTA wrap. */
 @media (min-width: 1101px) and (max-width: 1320px) {
   .stage {
-    width: min(42%, 24rem);
-    margin-left: 14.5%;
+    width: 27%;
+    margin-left: 16.5%;
   }
 
-  .actions { gap: 0.45rem; }
+  .actions {
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
 
   .primary,
   .secondary {
@@ -334,7 +339,11 @@
   }
 
   .title {
-    font-size: clamp(2rem, 2.8vw, 2.5rem);
+    font-size: clamp(2rem, 2.7vw, 2.45rem);
+  }
+
+  .lead {
+    font-size: clamp(1.05rem, 1.35vw, 1.2rem);
   }
 }
 
@@ -379,6 +388,12 @@
     justify-content: flex-start;
     gap: 1rem;
     min-height: 0;
+  }
+
+  .cluster {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: none;
   }
 
   .copy {

@@ -157,7 +157,7 @@
 
 @media (min-width: 1101px) {
   .section {
-    height: 35%;
+    height: 30%;
     min-height: 0;
     padding: 0.55rem 0 1.1rem;
     background: transparent;
@@ -249,6 +249,8 @@
     line-height: 1.42;
   }
 }
+
+.ribbonArc { display: none; }
 
 @media (max-width: 1100px) {
   .section {
@@ -428,9 +430,9 @@
   .section { padding: 0; }
 
   .inner {
-    width: 61.5%;
+    width: 59%;
     height: 100%;
-    margin-left: 19.2%;
+    margin-left: 20.2%;
     margin-right: 0;
     padding: 0;
     display: block;
@@ -454,7 +456,7 @@
     line-height: 1;
     letter-spacing: -0.025em;
     word-spacing: 0.08em;
-    transform: none;
+    transform: translateY(-0.18em);
   }
 
   .grid {
@@ -463,7 +465,7 @@
     width: 100%;
   }
 
-  .card { position: relative; height: clamp(11.5rem, 13vw, 19rem); }
+  .card { position: relative; height: clamp(10.4rem, 11.8125vw, 18.9rem); }
 
   .frame {
     position: relative;
@@ -504,6 +506,15 @@
     text-transform: none;
   }
 
+  .ribbonText { display: none; }
+  .ribbonArc {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  .ribbonLetter { display: inline-block; }
+
   .medal {
     z-index: 3;
     top: 0.2rem;
@@ -523,8 +534,8 @@
     position: absolute;
     left: 3%;
     bottom: 0;
-    width: 55%;
-    height: 83%;
+    width: 52%;
+    height: 78%;
     display: block;
     min-height: 0;
     overflow: hidden;
@@ -534,9 +545,9 @@
 
   .portrait {
     position: absolute;
-    left: -18%;
+    left: -11%;
     bottom: 0;
-    width: 150%;
+    width: 125%;
     max-width: none;
     height: auto;
     transform: none;
@@ -547,7 +558,7 @@
     position: absolute;
     z-index: 2;
     top: 20%;
-    left: 57%;
+    left: 52%;
     right: 5%;
     margin: 0;
     padding: 0;
@@ -601,7 +612,7 @@
    process panels stay roughly 1000px wide while the sides are cropped. */
 @media (min-width: 1101px) and (max-width: 1672px) {
   .inner {
-    width: 1000px;
-    margin-left: calc(50% - 500px);
+    width: calc(0.59 * max(100vw, 1409px));
+    margin-left: calc(50% - 0.298 * max(100vw, 1409px));
   }
 }
