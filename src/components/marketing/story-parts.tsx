@@ -17,10 +17,13 @@ export function ProjectCard({ project }: {
 }) {
     return <Link href={`/raboty/${project.slug}`} className={styles.work}><div className={styles.photo}><Image src={project.image} alt={project.alt} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 30vw" style={{ objectPosition: project.position }}/></div><div className={styles.workCopy}><h3>{project.title}</h3><p>{project.subtitle}</p><span className={styles.arrow} aria-hidden="true">→</span></div></Link>;
 }
-export function ServiceCard({ service }: {
+export function ServiceCard({ service, className = '', illustrated = false }: {
     service: Service;
+    className?: string | undefined;
+    illustrated?: boolean;
 }) {
-    return <Link href={`/uslugi/${service.slug}`} className={styles.service}><div className={styles.photo}><Image src={service.image} alt={service.alt} fill sizes="(max-width: 1100px) 50vw, 22vw"/><StoneArch /></div><div className={styles.serviceCopy}><h3>{service.title}</h3><p>{service.excerpt}</p></div></Link>;
+    const photo = <Image src={service.image} alt={service.alt} fill sizes={illustrated ? '(max-width: 480px) 60vw, (max-width: 1100px) 35vw, 16vw' : '(max-width: 1100px) 50vw, 22vw'} />;
+    return <Link href={`/uslugi/${service.slug}`} className={`${styles.service} ${illustrated ? styles.paintedService : ''} ${className}`}><div className={styles.photo}>{illustrated ? <><div className={styles.archOpening}>{photo}</div><Image className={styles.paintedFrame} src="/images/service-arch-v1.webp" fill alt="" sizes="(max-width: 1100px) 50vw, 24vw" quality={90}/></> : <>{photo}<StoneArch /></>}</div><div className={styles.serviceCopy}><h3>{service.title}</h3><p>{service.excerpt}</p></div></Link>;
 }
 function StoneArch() {
     return <svg className={styles.arch} viewBox="0 0 300 300" preserveAspectRatio="none" aria-hidden="true"><path d="M13 300V153a137 137 0 0 1 274 0v147" fill="none" stroke="#6c5941" strokeWidth="26"/><path d="M13 300V153a137 137 0 0 1 274 0v147" fill="none" stroke="#c4ad88" strokeWidth="22"/><path d="M25 300V153a125 125 0 0 1 250 0v147" fill="none" stroke="#8e7452" strokeWidth="2"/><path d="M2 201h23m-23 49h23m-23 48h23m250-97h23m-23 49h23m-23 48h23M13 153h24m-13-53 21 9m11-54 17 18m29-51 9 23m41-31v24m52-16-9 23m44 10-17 18m43 27-21 9m34 44h-24" fill="none" stroke="#8f7755" strokeWidth="2"/><path d="M0 161h31v12H0m269-12h31v12h-31M0 287h31v13H0m269-13h31v13h-31" fill="#b29a73" stroke="#756247" strokeWidth="1"/></svg>;

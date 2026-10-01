@@ -70,3 +70,6 @@
 @media(max-width:360px){.chapter{padding-inline:.85rem}.title{font-size:1.85rem}.service .photo{height:10rem}.serviceCopy h3{font-size:1.1rem}}
 @media(max-width:480px){.actions>*{flex-basis:100%}.button,.secondary{white-space:nowrap}.head.center{text-align:left}.head.center::before{display:none}}
 @media(prefers-reduced-motion:reduce){.button,.secondary,.work,.service{transition:none}}
+.paintedService .photo { border:0; border-radius:0; background:none; overflow:visible; }
+.archOpening { position:absolute; top:14%; left:17%; width:66%; height:81%; border-radius:50% 50% 0 0/32% 32% 0 0; overflow:hidden; }
+.paintedService .photo .paintedFrame { object-fit:fill; pointer-events:none; z-index:1; }

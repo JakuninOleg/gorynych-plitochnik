@@ -1,0 +1,31 @@
+.chapter { position: relative; isolation: isolate; color: var(--gor-ink); scroll-margin-top: 2rem; }
+.paper { position: absolute; inset: 0; z-index: 0; pointer-events: none; border: solid transparent; border-width: 65px 30px; border-image-source: url('/images/story-parchment-v2.webp'); border-image-slice: 140 100 fill; border-image-width: 65px 30px; filter: drop-shadow(0 4px 3px #53361624); }
+.content { position: relative; z-index: 1; padding: clamp(3.5rem, 4.2vw, 6rem) 5.5%; }
+.scenery { display: none; }
+.services .paper { filter: sepia(.07) drop-shadow(0 5px 4px #53361620); }
+.master .paper { filter: drop-shadow(0 4px 3px #53361624); }
+.reviews .paper { border-image-source: url('/images/story-parchment-v2.webp'); }
+.contact .content { padding-bottom: 5rem; }
+@media(min-width:1101px) {
+  .chapter { margin-top: -2.3rem; }
+  .paper { border-width: 85px 40px; border-image-width: 85px 40px; }
+  .scenery { display:block; position:absolute; inset:0; z-index:-1; pointer-events:none; }
+  .left,.right { position:absolute; width:calc((100vw - var(--scene-width, 65vw)) / 2 + var(--scene-width, 65vw) * .065); aspect-ratio:2/3; max-height:calc(100% + 2rem); top:4%; mask-image:linear-gradient(to bottom,transparent,#000 8%,#000 89%,transparent); }
+  .left { left:calc((var(--scene-width, 65vw) - 100vw) / 2); }
+  .right { right:calc((var(--scene-width, 65vw) - 100vw) / 2); }
+  .left img,.right img { object-fit:contain; }
+  .left img { object-position:left top; }
+  .right img { object-position:right top; }
+  .calculator .left { top:13%; }
+  .calculator .right { top:20%; }
+  .craft .left,.craft .right { top:0; }
+  .services .left { top:0; }
+  .services .right { top:5%; }
+  .master .left { top:-4%; }
+  .master .right { top:0; }
+  .reviews .left,.reviews .right { top:-8%; opacity:.9; }
+  .contact .left,.contact .right { top:-8%; }
+}
+@media(max-width:1100px) { .content { padding:3.5rem 2rem; } }
+@media(max-width:700px) { .content { padding:3rem 1.2rem; } .paper { border-image-width:45px 15px; } .contact .content { padding-bottom:3rem; } }
+@media(max-width:360px) { .content { padding-inline:.95rem; } }

@@ -1,0 +1,363 @@
+{
+  "report": [
+    {
+      "width": 2560,
+      "status": 200,
+      "viewport": 2560,
+      "scrollWidth": 2560,
+      "broken": [],
+      "sections": [
+        {
+          "id": "calculator",
+          "top": 2076.234375,
+          "height": 1385.671875
+        },
+        {
+          "id": "craft",
+          "top": 3425.109375,
+          "height": 800.6875
+        },
+        {
+          "id": "services",
+          "top": 4189,
+          "height": 1445.09375
+        },
+        {
+          "id": "master",
+          "top": 5597.296875,
+          "height": 859.453125
+        },
+        {
+          "id": "reviews",
+          "top": 6419.953125,
+          "height": 769.890625
+        },
+        {
+          "id": "contacts",
+          "top": 7153.046875,
+          "height": 720.125
+        }
+      ]
+    },
+    {
+      "scenario": "tile controls",
+      "ok": true
+    },
+    {
+      "scenario": "room and dimensions",
+      "ok": true
+    },
+    {
+      "scenario": "mock calculator action",
+      "ok": true
+    },
+    {
+      "scenario": "mock form action",
+      "ok": true
+    },
+    {
+      "scenario": "service link",
+      "route": "/uslugi/zapil-45",
+      "status": 200
+    },
+    {
+      "scenario": "service link",
+      "route": "/uslugi/vannaya",
+      "status": 200
+    },
+    {
+      "scenario": "service link",
+      "route": "/uslugi/keramogranit",
+      "status": 200
+    },
+    {
+      "scenario": "service link",
+      "route": "/uslugi/pol-i-steny",
+      "status": 200
+    },
+    {
+      "scenario": "service link",
+      "route": "/uslugi/fartuk",
+      "status": 200
+    },
+    {
+      "scenario": "service link",
+      "route": "/uslugi/mozaika",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "broken": [],
+      "sections": [
+        {
+          "id": "calculator",
+          "top": 1321.546875,
+          "height": 1226.375
+        },
+        {
+          "id": "craft",
+          "top": 2511.125,
+          "height": 623.875
+        },
+        {
+          "id": "services",
+          "top": 3098.203125,
+          "height": 1050.5625
+        },
+        {
+          "id": "master",
+          "top": 4111.96875,
+          "height": 701.171875
+        },
+        {
+          "id": "reviews",
+          "top": 4776.34375,
+          "height": 681.046875
+        },
+        {
+          "id": "contacts",
+          "top": 5420.59375,
+          "height": 666.390625
+        }
+      ]
+    },
+    {
+      "width": 1101,
+      "status": 200,
+      "viewport": 1101,
+      "scrollWidth": 1101,
+      "broken": [],
+      "sections": [
+        {
+          "id": "calculator",
+          "top": 1279.140625,
+          "height": 1210.25
+        },
+        {
+          "id": "craft",
+          "top": 2452.59375,
+          "height": 602.375
+        },
+        {
+          "id": "services",
+          "top": 3018.171875,
+          "height": 1033.765625
+        },
+        {
+          "id": "master",
+          "top": 4015.140625,
+          "height": 677.796875
+        },
+        {
+          "id": "reviews",
+          "top": 4656.140625,
+          "height": 660.234375
+        },
+        {
+          "id": "contacts",
+          "top": 5279.578125,
+          "height": 655.640625
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "status": 200,
+      "viewport": 1024,
+      "scrollWidth": 1024,
+      "broken": [],
+      "sections": [
+        {
+          "id": "calculator",
+          "top": 2980.515625,
+          "height": 1261.6875
+        },
+        {
+          "id": "craft",
+          "top": 4242.203125,
+          "height": 588.734375
+        },
+        {
+          "id": "services",
+          "top": 4830.9375,
+          "height": 1826.96875
+        },
+        {
+          "id": "master",
+          "top": 6657.90625,
+          "height": 621.015625
+        },
+        {
+          "id": "reviews",
+          "top": 7278.921875,
+          "height": 614.625
+        },
+        {
+          "id": "contacts",
+          "top": 7893.546875,
+          "height": 841.6875
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "broken": [],
+      "sections": [
+        {
+          "id": "calculator",
+          "top": 2576.09375,
+          "height": 1589.265625
+        },
+        {
+          "id": "craft",
+          "top": 4165.359375,
+          "height": 612.25
+        },
+        {
+          "id": "services",
+          "top": 4777.609375,
+          "height": 1538.96875
+        },
+        {
+          "id": "master",
+          "top": 6316.578125,
+          "height": 673.796875
+        },
+        {
+          "id": "reviews",
+          "top": 6990.375,
+          "height": 667.40625
+        },
+        {
+          "id": "contacts",
+          "top": 7657.78125,
+          "height": 841.6875
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "viewport": 430,
+      "scrollWidth": 430,
+      "broken": [],
+      "sections": [
+        {
+          "id": "calculator",
+          "top": 3574.546875,
+          "height": 1824.203125
+        },
+        {
+          "id": "craft",
+          "top": 5398.75,
+          "height": 931.828125
+        },
+        {
+          "id": "services",
+          "top": 6330.578125,
+          "height": 2840.390625
+        },
+        {
+          "id": "master",
+          "top": 9170.96875,
+          "height": 1110.28125
+        },
+        {
+          "id": "reviews",
+          "top": 10281.25,
+          "height": 1205.25
+        },
+        {
+          "id": "contacts",
+          "top": 11486.5,
+          "height": 1154.078125
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "viewport": 390,
+      "scrollWidth": 390,
+      "broken": [],
+      "sections": [
+        {
+          "id": "calculator",
+          "top": 3373.296875,
+          "height": 1786.984375
+        },
+        {
+          "id": "craft",
+          "top": 5160.28125,
+          "height": 899.578125
+        },
+        {
+          "id": "services",
+          "top": 6059.859375,
+          "height": 2792.296875
+        },
+        {
+          "id": "master",
+          "top": 8852.15625,
+          "height": 1127.359375
+        },
+        {
+          "id": "reviews",
+          "top": 9979.515625,
+          "height": 1234.265625
+        },
+        {
+          "id": "contacts",
+          "top": 11213.78125,
+          "height": 1170.765625
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "status": 200,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "broken": [],
+      "sections": [
+        {
+          "id": "calculator",
+          "top": 3092.359375,
+          "height": 1789.21875
+        },
+        {
+          "id": "craft",
+          "top": 4881.578125,
+          "height": 910.828125
+        },
+        {
+          "id": "services",
+          "top": 5792.40625,
+          "height": 2557.203125
+        },
+        {
+          "id": "master",
+          "top": 8349.609375,
+          "height": 1060.609375
+        },
+        {
+          "id": "reviews",
+          "top": 9410.21875,
+          "height": 1378.09375
+        },
+        {
+          "id": "contacts",
+          "top": 10788.3125,
+          "height": 1246.984375
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
