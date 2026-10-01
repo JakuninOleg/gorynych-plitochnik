@@ -1,0 +1,91 @@
+.section {
+  position: relative;
+  isolation: isolate;
+  color: var(--gor-ink);
+  scroll-margin-top: 2rem;
+}
+
+.paper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: url('/images/works-parchment-v1.webp') center / 100% 100% no-repeat;
+  filter: drop-shadow(0 5px 3px #5d391220);
+}
+
+.scenery { display: none; }
+.content { position: relative; z-index: 1; padding: clamp(4.5rem, 4.7vw, 7.5rem) 5.5% clamp(4.5rem, 4vw, 6rem); }
+.heading { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 2rem; text-align: center; }
+.heading h2 { margin: 0; font: 900 clamp(2rem, 2.5vw, 3.7rem)/1.06 var(--gor-font-fairy); letter-spacing: -.025em; text-wrap: balance; }
+.heading em { color: var(--gor-cta); font-style: normal; }
+.flourish { display: block; flex: 0 0 4.5rem; color: #813c25; }
+.flourish svg { display: block; width: 100%; height: auto; }
+.mirrored { transform: scaleX(-1); }
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.card { display: block; min-width: 0; text-decoration: none; color: inherit; }
+.photo { position: relative; aspect-ratio: 1 / 1.04; border: 7px solid #fff4de; outline: 1px solid #ab895b; box-shadow: 0 5px 12px #4c2c1729; overflow: hidden; }
+.photo img { object-fit: cover; transition: transform .35s ease; }
+.card:hover .photo img { transform: scale(1.035); }
+.corner { position: absolute; inset: 5px; pointer-events: none; border: 1px solid #fff4de50; }
+.caption { position: relative; display: flex; align-items: center; justify-content: center; gap: .7rem; width: 94%; min-height: 4.25rem; padding: .7rem 1.2rem; margin: -1.55rem auto 0; z-index: 1; background: url('/images/header-parchment-v2.webp') center / 100% 100% no-repeat; filter: drop-shadow(0 3px 2px #55331422); text-align: center; }
+.caption h3 { margin: 0; font: 700 clamp(1.1rem, 1.1vw, 1.5rem)/1.16 var(--gor-font-story); text-wrap: balance; }
+.caption > span { color: var(--gor-cta); font: 700 1.2rem/1 var(--gor-font-display); }
+.detail { max-width: 28rem; margin: .5rem auto 0; font: 400 .9rem/1.45 var(--gor-font-display); color: #65503a; text-align: center; }
+.allWorks { display: flex; justify-content: center; align-items: center; gap: .75rem; width: fit-content; margin: 1.5rem auto 0; min-height: 44px; font: 700 1rem/1.4 var(--gor-font-display); color: var(--gor-cta); text-decoration-thickness: 1px; text-underline-offset: 5px; }
+.allWorks:hover { text-decoration: none; }
+
+@media (min-width: 1101px) {
+  .section { min-height: var(--works-paper-height); }
+  .scenery { display: block; position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+  .scenery::before {
+    content: '';
+    position: absolute;
+    top: -4%;
+    left: 2%;
+    right: 2%;
+    height: 15%;
+    background: url('/images/process-stone-transition-v1.webp') center / 100% auto no-repeat;
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent), linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent);
+    mask-composite: intersect;
+  }
+  .before, .after {
+    position: absolute;
+    width: calc((100vw - var(--scene-width)) / 2 + var(--scene-width) * .075);
+    aspect-ratio: 2 / 3;
+    top: -12%;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent 100%);
+  }
+  .before { left: calc((var(--scene-width) - 100vw) / 2); background-image: url('/images/works-before-v1.webp'); background-position: left top; }
+  .after { right: calc((var(--scene-width) - 100vw) / 2); background-image: url('/images/works-after-v1.webp'); background-position: right top; }
+}
+
+@media (max-width: 1100px) {
+  .paper { background: none; border: solid transparent; border-width: 55px 20px; border-image-source: url('/images/works-parchment-v1.webp'); border-image-slice: 120 110 fill; border-image-width: 55px 20px; }
+  .content { padding: 3rem 2rem; }
+  .heading { gap: .65rem; }
+  .heading h2 { font-size: clamp(2rem, 3.6vw, 2.7rem); }
+  .flourish { flex-basis: 2.5rem; }
+  .gallery { gap: 1rem; }
+  .photo { border-width: 5px; aspect-ratio: 3 / 4; }
+  .caption { width: 100%; padding-inline: .6rem; }
+  .caption h3 { font-size: 1.08rem; }
+  .detail { font-size: .8rem; }
+}
+
+@media (max-width: 700px) {
+  .content { padding: 2.8rem 1.2rem 2.5rem; }
+  .heading { margin-bottom: 1.6rem; }
+  .heading h2 { font-size: clamp(1.8rem, 6.5vw, 2.3rem); }
+  .flourish { display: none; }
+  .gallery { grid-template-columns: 1fr; gap: 1.75rem; max-width: 30rem; margin-inline: auto; }
+  .photo { aspect-ratio: 1 / 1.05; }
+  .caption { width: 94%; min-height: 4rem; }
+  .caption h3 { font-size: 1.25rem; }
+  .detail { font-size: .9rem; }
+  .allWorks { font-size: .95rem; }
+}
+
+@media (prefers-reduced-motion: reduce) { .photo img { transition: none; } }

@@ -11,8 +11,8 @@
 }
 
 .main { position: relative; z-index: 1; }
-.continuation { position: relative; z-index: 2; background:linear-gradient(90deg,#edd9b1,#f8ebd3 16%,#f8ebd3 82%,#ecd4ac); }
-.continuation::before { content:'';position:absolute;inset:0;pointer-events:none;opacity:.5;background:url('/images/paper-texture-v1.webp') center top/700px auto repeat;mix-blend-mode:multiply; }
+.continuation { position: relative; z-index: 2; isolation:isolate; }
+.continuation::before { content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:url('/images/paper-texture-v1.webp'),linear-gradient(90deg,#edd9b1,#f8ebd3 16%,#f8ebd3 82%,#ecd4ac);background-size:700px auto,100% 100%;background-blend-mode:soft-light; }
 .marginArt { display:none; }
 
 @media (min-width: 1101px) {
@@ -52,12 +52,17 @@
     padding-bottom: 0;
   }
 
-  .continuation { margin-top:calc(var(--scene-width) * -0.035);padding-top:calc(var(--scene-width) * .025); }
-  .continuation::after { content:'';position:absolute;inset:0;pointer-events:none;box-shadow:inset 1px 0 #b79a6355,inset -1px 0 #b79a6355; }
+  .continuation { --works-paper-height:calc(var(--scene-width) * .57);margin-top:calc(var(--scene-width) * -0.054);padding-top:0; }
+  .continuation::before {
+    top:calc(var(--works-paper-height) * .78);
+    /* Organic paper edge is applied to the substrate, keeping content and focus intact. */
+    mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 2000' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M12 0H988L994 49 988 84 995 130 990 180 997 227 989 271 994 324 988 381 996 430 990 490 997 541 989 596 995 650 991 703 997 751 989 806 995 859 988 913 996 965 990 1020 997 1076 989 1133 995 1184 988 1236 996 1290 990 1348 997 1400 989 1457 995 1505 988 1560 996 1614 990 1671 997 1724 989 1780 995 1833 988 1888 996 1945 990 2000H10L4 1951 12 1901 5 1848 11 1797 3 1746 10 1693 5 1640 12 1589 4 1532 10 1484 3 1430 11 1378 5 1324 12 1270 4 1218 10 1162 3 1114 11 1056 5 1007 12 952 4 899 10 847 3 794 11 739 5 686 12 637 4 580 10 529 3 474 11 422 5 369 12 316 4 263 10 208 3 157 11 105 5 54Z'/%3E%3C/svg%3E");
+    mask-size:100% 100%;
+  }
   .marginArt { display:block;position:absolute;inset:0;z-index:-1;pointer-events:none; }
   .marginArt::before,.marginArt::after { content:'';position:absolute;width:clamp(180px,17vw,430px);height:calc(var(--scene-width) * 1.65);background-size:contain;background-repeat:no-repeat;opacity:.86; }
-  .marginArt::before {right:calc(100% - 3rem);top:10rem;background-image:url('/images/story-margin-left-v1.webp');background-position:left top; }
-  .marginArt::after {left:calc(100% - 3rem);bottom:3rem;background-image:url('/images/story-margin-right-v1.webp');background-position:right bottom; }
+  .marginArt::before {left:calc((var(--scene-width) - 100vw) / 2);top:calc(var(--works-paper-height) + 12rem);background-image:url('/images/story-margin-left-v1.webp');background-position:left top; }
+  .marginArt::after {right:calc((var(--scene-width) - 100vw) / 2);bottom:3rem;background-image:url('/images/story-margin-right-v1.webp');background-position:right bottom; }
 
   .main::before {
     content: '';

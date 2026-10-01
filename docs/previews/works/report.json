@@ -1,0 +1,97 @@
+{
+  "report": [
+    {
+      "width": 320,
+      "overflow": false,
+      "brokenImages": 0,
+      "links": [
+        "/raboty/seraya-vannaya",
+        "/raboty/uzornyy-fartuk",
+        "/raboty/uzornyy-pol",
+        "/raboty"
+      ],
+      "textOutside": false
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "brokenImages": 0,
+      "links": [
+        "/raboty/seraya-vannaya",
+        "/raboty/uzornyy-fartuk",
+        "/raboty/uzornyy-pol",
+        "/raboty"
+      ],
+      "textOutside": false
+    },
+    {
+      "scenario": "work card navigation",
+      "ok": true
+    },
+    {
+      "scenario": "all works navigation",
+      "ok": true
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "brokenImages": 0,
+      "links": [
+        "/raboty/seraya-vannaya",
+        "/raboty/uzornyy-fartuk",
+        "/raboty/uzornyy-pol",
+        "/raboty"
+      ],
+      "textOutside": false
+    },
+    {
+      "width": 1024,
+      "overflow": false,
+      "brokenImages": 0,
+      "links": [
+        "/raboty/seraya-vannaya",
+        "/raboty/uzornyy-fartuk",
+        "/raboty/uzornyy-pol",
+        "/raboty"
+      ],
+      "textOutside": false
+    },
+    {
+      "width": 1101,
+      "overflow": false,
+      "brokenImages": 0,
+      "links": [
+        "/raboty/seraya-vannaya",
+        "/raboty/uzornyy-fartuk",
+        "/raboty/uzornyy-pol",
+        "/raboty"
+      ],
+      "textOutside": false
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": 0,
+      "links": [
+        "/raboty/seraya-vannaya",
+        "/raboty/uzornyy-fartuk",
+        "/raboty/uzornyy-pol",
+        "/raboty"
+      ],
+      "textOutside": false
+    },
+    {
+      "width": 2560,
+      "overflow": false,
+      "brokenImages": 0,
+      "links": [
+        "/raboty/seraya-vannaya",
+        "/raboty/uzornyy-fartuk",
+        "/raboty/uzornyy-pol",
+        "/raboty"
+      ],
+      "textOutside": false
+    }
+  ],
+  "errors": []
+}

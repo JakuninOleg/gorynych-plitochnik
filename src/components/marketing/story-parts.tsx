@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-import { projects, services, type Project, type Service } from '@/lib/marketing-content';
+import { services, type Project, type Service } from '@/lib/marketing-content';
 import styles from './story.module.css';
 export function SectionHeading({ children, intro, href, linkLabel = 'Смотреть все', center = false }: {
     children: ReactNode;
@@ -24,9 +24,6 @@ export function ServiceCard({ service }: {
 }
 function StoneArch() {
     return <svg className={styles.arch} viewBox="0 0 300 300" preserveAspectRatio="none" aria-hidden="true"><path d="M13 300V153a137 137 0 0 1 274 0v147" fill="none" stroke="#6c5941" strokeWidth="26"/><path d="M13 300V153a137 137 0 0 1 274 0v147" fill="none" stroke="#c4ad88" strokeWidth="22"/><path d="M25 300V153a125 125 0 0 1 250 0v147" fill="none" stroke="#8e7452" strokeWidth="2"/><path d="M2 201h23m-23 49h23m-23 48h23m250-97h23m-23 49h23m-23 48h23M13 153h24m-13-53 21 9m11-54 17 18m29-51 9 23m41-31v24m52-16-9 23m44 10-17 18m43 27-21 9m34 44h-24" fill="none" stroke="#8f7755" strokeWidth="2"/><path d="M0 161h31v12H0m269-12h31v12h-31M0 287h31v13H0m269-13h31v13h-31" fill="#b29a73" stroke="#756247" strokeWidth="1"/></svg>;
-}
-export function WorksPreview() {
-    return <section className={styles.chapter} id="works"><SectionHeading href="/raboty" linkLabel="Все работы">Сказки кончаются, <em>реальные работы остаются</em></SectionHeading><div className={styles.works}>{projects.filter(project => ['seraya-vannaya', 'uzornyy-fartuk', 'uzornyy-pol'].includes(project.slug)).map(project => <ProjectCard key={project.slug} project={project}/>)}</div></section>;
 }
 export function ServicesPreview() {
     return <section className={styles.chapter} id="services"><SectionHeading href="/uslugi" linkLabel="Все услуги">Что я делаю</SectionHeading><div className={styles.services}>{services.slice(0, 4).map(service => <ServiceCard key={service.slug} service={service}/>)}</div></section>;

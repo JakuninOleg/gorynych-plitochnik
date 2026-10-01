@@ -11,7 +11,8 @@ import { Hero } from '@/components/marketing/hero'
 import { ProcessSection } from '@/components/marketing/process-section'
 import { SiteHeader } from '@/components/marketing/site-header'
 import { SiteFooter } from '@/components/marketing/site-footer'
-import { WorksPreview, CraftFeature, ServicesPreview, MasterSection, ReviewsSection } from '@/components/marketing/story-parts'
+import { CraftFeature, ServicesPreview, MasterSection, ReviewsSection } from '@/components/marketing/story-parts'
+import { WorksSection } from '@/components/marketing/works-section'
 import { TileCalculator } from '@/components/marketing/tile-calculator'
 import { ContactSection } from '@/components/marketing/contact-section'
 import worldStyles from '@/components/marketing/world.module.css'
@@ -35,7 +36,7 @@ export default function HomePage() {
           <ProcessSection />
           <div className={worldStyles.continuation}>
             <div className={worldStyles.marginArt} aria-hidden="true" />
-            <WorksPreview />
+            <WorksSection />
             <TileCalculator />
             <CraftFeature />
             <ServicesPreview />
