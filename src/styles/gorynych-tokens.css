@@ -22,6 +22,9 @@
   --gor-content-max: 92rem;
   --gor-canvas-max: 90rem;
   --gor-text-max: 36rem;
+  /* Shared mobile/tablet content column (header, hero, process). */
+  --gor-mobile-content-max: 48rem;
+  --gor-mobile-gutter: 1rem;
 
   --gor-space-1: 0.25rem;
   --gor-space-2: 0.5rem;

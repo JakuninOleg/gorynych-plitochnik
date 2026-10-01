@@ -3,18 +3,18 @@
 import { Phone, X } from '@phosphor-icons/react'
 import { motion, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useId, useRef, useState } from 'react'
 import { siTelegram, siWhatsapp } from 'simple-icons'
 import { PHONE_HREF, PHONE_LABEL, WHATSAPP_URL } from '@/lib/gorynych-contacts'
 import styles from './site-header.module.css'
 
 const NAV = [
-  { href: '#top', label: 'Главная' },
-  { href: '#process', label: 'Как я работаю' },
-  { href: '#contacts', label: 'Контакты' },
+  { href: '/', label: 'Главная' },
+  { href: '/uslugi', label: 'Услуги' },
+  { href: '/raboty', label: 'Работы' },
+  { href: '/#contacts', label: 'Контакты' },
 ] as const
-
-const CALL_URL = `${WHATSAPP_URL}?text=${encodeURIComponent('Здравствуйте! Хочу заказать звонок.')}`
 
 function BrandIcon({ type }: { type: 'whatsapp' | 'telegram' }) {
   return (
@@ -121,7 +121,7 @@ export function SiteHeader() {
       </div>
 
       <div className={styles.inner}>
-        <a className={styles.brand} href="#top">
+        <Link className={styles.brand} href="/">
           <Image
             className={styles.logo}
             src="/images/gorynych-logo-v2.webp"
@@ -131,46 +131,46 @@ export function SiteHeader() {
             priority
             sizes="(max-width: 1100px) 150px, 160px"
           />
-        </a>
+        </Link>
 
         <nav className={styles.desktopNav} aria-label="Основная навигация">
           {NAV.map((item) => (
-            <a key={item.href} href={item.href}>{item.label}</a>
+            <Link key={item.href} href={item.href}>{item.label}</Link>
           ))}
         </nav>
 
         <div className={styles.desktopActions}>
           <div className={styles.social}>
             <a
-              className={styles.socialLink}
+              className={`${styles.socialLink} ${styles.socialWhatsapp}`}
               href={WHATSAPP_URL}
               rel="noopener noreferrer"
               target="_blank"
               aria-label="Написать в WhatsApp"
+              title="WhatsApp"
             >
               <BrandIcon type="whatsapp" />
             </a>
             <span
-              className={styles.socialPending}
+              className={`${styles.socialLink} ${styles.socialTelegram} ${styles.socialSoon}`}
               role="img"
-              title="Telegram скоро появится — ник запрашивается"
-              aria-label="Telegram скоро появится, ник ещё не указан"
+              title="Telegram"
+              aria-label="Telegram — скоро появится"
             >
               <BrandIcon type="telegram" />
             </span>
           </div>
           <a className={styles.phone} href={PHONE_HREF}>{PHONE_LABEL}</a>
           <motion.a
+            tabIndex={0}
             className={styles.cta}
-            href={CALL_URL}
-            rel="noopener noreferrer"
-            target="_blank"
-            title="Написать Гору, чтобы заказать звонок"
+            href="/#contacts"
+            title="Обсудить проект"
             {...ctaMotion}
             transition={{ type: 'spring', stiffness: 420, damping: 28 }}
           >
             <Phone weight="fill" aria-hidden="true" />
-            <span>Заказать звонок</span>
+            <span>Обсудить проект</span>
           </motion.a>
         </div>
 
@@ -216,38 +216,43 @@ export function SiteHeader() {
         </div>
         <nav className={styles.mobileNav} aria-label="Мобильная навигация">
           {NAV.map((item) => (
-            <a key={item.href} href={item.href} onClick={close}>{item.label}</a>
+            <Link key={item.href} href={item.href} onClick={close}>{item.label}</Link>
           ))}
         </nav>
         <div className={styles.mobileActions}>
-          <a
-            className={styles.socialLink}
-            href={WHATSAPP_URL}
-            rel="noopener noreferrer"
-            target="_blank"
-            onClick={close}
-            aria-label="Написать в WhatsApp"
-          >
-            <BrandIcon type="whatsapp" />
-            WhatsApp
-          </a>
-          <span className={styles.socialPendingRow}>
-            <BrandIcon type="telegram" />
-            Telegram скоро
-          </span>
+          <div className={styles.mobileSocial}>
+            <a
+              className={`${styles.socialLink} ${styles.socialWhatsapp}`}
+              href={WHATSAPP_URL}
+              rel="noopener noreferrer"
+              target="_blank"
+              onClick={close}
+              aria-label="Написать в WhatsApp"
+              title="WhatsApp"
+            >
+              <BrandIcon type="whatsapp" />
+            </a>
+            <span
+              className={`${styles.socialLink} ${styles.socialTelegram} ${styles.socialSoon}`}
+              role="img"
+              title="Telegram"
+              aria-label="Telegram — скоро появится"
+            >
+              <BrandIcon type="telegram" />
+            </span>
+          </div>
           <a className={styles.phone} href={PHONE_HREF} onClick={close}>{PHONE_LABEL}</a>
           <motion.a
+            tabIndex={0}
             className={styles.cta}
-            href={CALL_URL}
-            rel="noopener noreferrer"
-            target="_blank"
-            title="Написать Гору, чтобы заказать звонок"
+            href="/#contacts"
+            title="Обсудить проект"
             onClick={close}
             {...ctaMotion}
             transition={{ type: 'spring', stiffness: 420, damping: 28 }}
           >
             <Phone weight="fill" aria-hidden="true" />
-            <span>Заказать звонок</span>
+            <span>Обсудить проект</span>
           </motion.a>
         </div>
       </div>

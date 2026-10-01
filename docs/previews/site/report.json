@@ -1,0 +1,255 @@
+{
+  "report": [
+    {
+      "route": "/",
+      "width": 2560,
+      "status": 200,
+      "viewport": 2560,
+      "h1": 1,
+      "brokenImages": [],
+      "missingAnchors": [],
+      "overflow": []
+    },
+    {
+      "route": "/uslugi",
+      "width": 2560,
+      "status": 200,
+      "viewport": 2560,
+      "h1": 1,
+      "brokenImages": [],
+      "missingAnchors": [],
+      "overflow": []
+    },
+    {
+      "route": "/uslugi/keramogranit",
+      "width": 2560,
+      "status": 200,
+      "viewport": 2560,
+      "h1": 1,
+      "brokenImages": [],
+      "missingAnchors": [],
+      "overflow": []
+    },
+    {
+      "route": "/raboty",
+      "width": 2560,
+      "status": 200,
+      "viewport": 2560,
+      "h1": 1,
+      "brokenImages": [],
+      "missingAnchors": [],
+      "overflow": []
+    },
+    {
+      "route": "/raboty/seraya-vannaya",
+      "width": 2560,
+      "status": 200,
+      "viewport": 2560,
+      "h1": 1,
+      "brokenImages": [],
+      "missingAnchors": [],
+      "overflow": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "status": 200,
+      "viewport": 1440,
+      "h1": 1,
+      "brokenImages": [],
+      "missingAnchors": [],
+      "overflow": []
+    },
+    {
+      "route": "/",
+      "width": 1366,
+      "status": 200,
+      "viewport": 1366,
+      "h1": 1,
+      "brokenImages": [],
+      "missingAnchors": [],
+      "overflow": []
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "status": 200,
+      "viewport": 1024,
+      "h1": 1,
+      "brokenImages": [],
+      "missingAnchors": [],
+      "overflow": []
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "status": 200,
+      "viewport": 768,
+      "h1": 1,
+      "brokenImages": [],
+      "missingAnchors": [],
+      "overflow": []
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "status": 200,
+      "viewport": 390,
+      "h1": 1,
+      "brokenImages": [],
+      "missingAnchors": [],
+      "overflow": []
+    },
+    {
+      "route": "/",
+      "width": 430,
+      "status": 200,
+      "viewport": 430,
+      "h1": 1,
+      "brokenImages": [],
+      "missingAnchors": [],
+      "overflow": []
+    },
+    {
+      "route": "/",
+      "width": 320,
+      "status": 200,
+      "viewport": 320,
+      "h1": 1,
+      "brokenImages": [],
+      "missingAnchors": [],
+      "overflow": []
+    },
+    {
+      "route": "/uslugi/keramogranit",
+      "width": 390,
+      "status": 200,
+      "viewport": 390,
+      "h1": 1,
+      "brokenImages": [],
+      "missingAnchors": [],
+      "overflow": []
+    },
+    {
+      "route": "/raboty/seraya-vannaya",
+      "width": 390,
+      "status": 200,
+      "viewport": 390,
+      "h1": 1,
+      "brokenImages": [],
+      "missingAnchors": [],
+      "overflow": []
+    },
+    {
+      "route": "/uslugi",
+      "width": 390,
+      "status": 200,
+      "viewport": 390,
+      "h1": 1,
+      "brokenImages": [],
+      "missingAnchors": [],
+      "overflow": []
+    },
+    {
+      "route": "/raboty",
+      "width": 390,
+      "status": 200,
+      "viewport": 390,
+      "h1": 1,
+      "brokenImages": [],
+      "missingAnchors": [],
+      "overflow": []
+    },
+    {
+      "scenario": "mobile menu navigation",
+      "ok": true
+    },
+    {
+      "scenario": "project filter",
+      "cards": 1
+    },
+    {
+      "scenario": "calculator",
+      "before": "Ванная: 30 × 60, Синий, прямая раскладка",
+      "after": "Ванная: 60 × 60, Синий, со смещением",
+      "ok": true
+    },
+    {
+      "scenario": "room and dimensions",
+      "ok": true
+    },
+    {
+      "scenario": "placeholder form",
+      "ok": true
+    },
+    {
+      "route": "/",
+      "status": 200
+    },
+    {
+      "route": "/uslugi",
+      "status": 200
+    },
+    {
+      "route": "/raboty",
+      "status": 200
+    },
+    {
+      "route": "/uslugi/vannaya",
+      "status": 200
+    },
+    {
+      "route": "/uslugi/keramogranit",
+      "status": 200
+    },
+    {
+      "route": "/uslugi/pol-i-steny",
+      "status": 200
+    },
+    {
+      "route": "/uslugi/fartuk",
+      "status": 200
+    },
+    {
+      "route": "/uslugi/zapil-45",
+      "status": 200
+    },
+    {
+      "route": "/uslugi/mozaika",
+      "status": 200
+    },
+    {
+      "route": "/raboty/seraya-vannaya",
+      "status": 200
+    },
+    {
+      "route": "/raboty/vannaya-pod-mramor",
+      "status": 200
+    },
+    {
+      "route": "/raboty/krupnyy-format",
+      "status": 200
+    },
+    {
+      "route": "/raboty/uzornyy-fartuk",
+      "status": 200
+    },
+    {
+      "route": "/raboty/uzornyy-pol",
+      "status": 200
+    },
+    {
+      "route": "/raboty/sinyaya-nisha",
+      "status": 200
+    },
+    {
+      "scenario": "unknown service",
+      "status": 404
+    },
+    {
+      "scenario": "unknown work",
+      "status": 404
+    }
+  ],
+  "errors": []
+}

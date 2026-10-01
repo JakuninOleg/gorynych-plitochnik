@@ -53,22 +53,75 @@
   display: none;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.7rem, 1vw, 1.5rem);
+  gap: clamp(0.85rem, 1.15vw, 1.7rem);
   white-space: nowrap;
 }
 
-.desktopNav a,
-.mobileNav a {
+.desktopNav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.4rem;
+  padding: 0.15rem 0.1rem 0.35rem;
   color: var(--gor-ink);
+  font-family: var(--gor-font-story);
+  font-size: clamp(0.95rem, 0.95vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1;
   text-decoration: none;
-  font-weight: 600;
+  transition: color 200ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.desktopNav a::after {
+  content: "";
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 0.12rem;
+  height: 3px;
+  border-radius: 60% 40% 55% 45%;
+  background: color-mix(in srgb, var(--gor-cta) 82%, var(--gor-gold));
+  transform: scaleX(0) skewX(-12deg) rotate(-1deg);
+  transform-origin: left center;
+  transition: transform 320ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  pointer-events: none;
 }
 
 .desktopNav a:hover,
-.mobileNav a:hover,
-.phone:hover,
-.socialLink:hover {
+.desktopNav a:focus-visible {
   color: var(--gor-cta);
+  transform: translateY(-1px);
+}
+
+.desktopNav a:hover::after,
+.desktopNav a:focus-visible::after {
+  transform: scaleX(1) skewX(-12deg) rotate(-1deg);
+}
+
+.desktopNav a:focus-visible {
+  outline: 2px solid var(--gor-cta);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.mobileNav a {
+  position: relative;
+  color: var(--gor-ink);
+  font-family: var(--gor-font-story);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.mobileNav a:hover,
+.mobileNav a:focus-visible {
+  color: var(--gor-cta);
+}
+
+.mobileSocial {
+  display: none;
 }
 
 .desktopActions {
@@ -81,50 +134,157 @@
 .social {
   display: inline-flex;
   align-items: center;
-  gap: 0.36rem;
+  gap: 0.45rem;
 }
 
-.socialLink,
-.socialPending {
+.socialLink {
+  --social-glow: transparent;
+  position: relative;
   display: inline-grid;
   place-items: center;
-  width: 2rem;
-  height: 2rem;
-  border: 0;
+  width: 2.45rem;
+  height: 2.45rem;
+  border: 1.5px solid transparent;
   border-radius: 50%;
-  background: #fff8e9;
-  color: #20b558;
+  color: #fff8ee;
   text-decoration: none;
+  box-shadow:
+    0 5px 12px color-mix(in srgb, var(--gor-ink) 14%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 28%, transparent);
+  transition:
+    filter 200ms ease,
+    box-shadow 280ms ease,
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
-.socialPending {
+.socialWhatsapp {
+  background:
+    radial-gradient(circle at 30% 22%, color-mix(in srgb, #fff 42%, transparent), transparent 46%),
+    linear-gradient(165deg, #55f08f 0%, #25d366 42%, #1ebe57 100%);
+  border-color: color-mix(in srgb, #12a04a 35%, #25d366);
+  filter: saturate(1.12) brightness(1.06);
+}
+
+.socialTelegram {
+  background:
+    radial-gradient(circle at 30% 22%, color-mix(in srgb, #fff 42%, transparent), transparent 46%),
+    linear-gradient(165deg, #7ad4ff 0%, #34b7f1 42%, #229ED9 100%);
+  border-color: color-mix(in srgb, #1a8ec4 35%, #34b7f1);
+  filter: saturate(1.1) brightness(1.05);
+}
+
+.socialSoon {
   cursor: default;
-  color: #229ed9;
+  opacity: 0.92;
+}
+
+.socialWhatsapp:hover,
+.socialWhatsapp:focus-visible {
+  --social-glow: color-mix(in srgb, #25d366 42%, transparent);
+  box-shadow:
+    0 10px 18px color-mix(in srgb, #25d366 32%, transparent),
+    0 0 0 6px var(--social-glow),
+    inset 0 1px 0 color-mix(in srgb, white 42%, transparent);
+  transform: translateY(-2px) scale(1.07) rotate(-7deg);
+  filter: saturate(1.18) brightness(1.1);
+}
+
+.socialTelegram:hover,
+.socialTelegram:focus-visible {
+  --social-glow: color-mix(in srgb, #34b7f1 40%, transparent);
+  box-shadow:
+    0 10px 18px color-mix(in srgb, #34b7f1 30%, transparent),
+    0 0 0 6px var(--social-glow),
+    inset 0 1px 0 color-mix(in srgb, white 42%, transparent);
+  transform: translateY(-3px) translateX(2px) scale(1.07) rotate(-11deg);
+  filter: saturate(1.16) brightness(1.1);
+  opacity: 1;
+}
+
+.socialLink:focus-visible {
+  outline: 2px solid var(--gor-cta);
+  outline-offset: 3px;
 }
 
 .brandIcon {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 62%;
+  height: 62%;
+  filter: drop-shadow(0 1px 0 color-mix(in srgb, #000 12%, transparent));
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.socialPendingRow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  min-height: 2.75rem;
-  padding: 0.45rem 0.8rem;
-  border: 1.5px dashed color-mix(in srgb, var(--gor-ink) 30%, var(--gor-parchment-edge));
-  border-radius: 3px;
-  color: var(--gor-ink-muted);
-  font-weight: 600;
+.socialWhatsapp:hover .brandIcon,
+.socialWhatsapp:focus-visible .brandIcon {
+  animation: wa-bob 520ms ease both;
+}
+
+.socialTelegram:hover .brandIcon,
+.socialTelegram:focus-visible .brandIcon {
+  animation: tg-fly 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes wa-bob {
+  0% { transform: scale(1) rotate(0deg); }
+  35% { transform: scale(1.12) rotate(-12deg); }
+  70% { transform: scale(1.06) rotate(8deg); }
+  100% { transform: scale(1.08) rotate(0deg); }
+}
+
+@keyframes tg-fly {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  45% { transform: translate(2px, -3px) rotate(-14deg) scale(1.1); }
+  100% { transform: translate(1px, -1px) rotate(8deg) scale(1.08); }
 }
 
 .phone {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.4rem;
+  padding: 0.1rem 0.05rem 0.28rem;
   color: var(--gor-ink);
-  text-decoration: none;
+  font-family: var(--gor-font-story);
+  font-size: clamp(0.95rem, 0.95vw, 1.12rem);
   font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  text-decoration: none;
   white-space: nowrap;
+  transition: color 200ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.phone::after {
+  content: "";
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: 0.08rem;
+  height: 2.5px;
+  border-radius: 60% 40% 55% 45%;
+  background: color-mix(in srgb, var(--gor-cta) 80%, var(--gor-gold));
+  transform: scaleX(0) skewX(-10deg) rotate(-1deg);
+  transform-origin: left center;
+  transition: transform 320ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  pointer-events: none;
+}
+
+.phone:hover,
+.phone:focus-visible {
+  color: var(--gor-cta);
+  transform: translateY(-1px);
+}
+
+.phone:hover::after,
+.phone:focus-visible::after {
+  transform: scaleX(1) skewX(-10deg) rotate(-1deg);
+}
+
+.phone:focus-visible {
+  outline: 2px solid var(--gor-cta);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .cta {
@@ -307,12 +467,11 @@
     position: absolute;
     inset-inline: 0;
     top: 0;
-    /* Reference 1672: parchment x350–1395. Height follows asset 2172×365,
-       then slightly compressed so the bar stays near y90–100 (~5.7vw). */
-    --gor-header-left: 20.93%;
-    --gor-header-paper-left: 19.1%;
-    --gor-header-width: 62.5%;
-    --gor-header-height: calc(62.5vw * 365 / 2172 * 0.54);
+    /* Center parchment + content as one bar in the viewport. */
+    --gor-header-width: var(--scene-width);
+    --gor-header-paper-left: calc((100% - var(--scene-width)) / 2);
+    --gor-header-left: var(--gor-header-paper-left);
+    --gor-header-height: calc(var(--scene-width) * 365 / 2172 * 0.54);
     --gor-header-lift: clamp(8px, 0.55vw, 14px);
   }
 
@@ -340,18 +499,18 @@
     margin-left: var(--gor-header-left);
     margin-right: 0;
     padding:
-      0.28rem
-      clamp(2.4rem, 3.8vw, 5.2rem)
-      0.45rem
-      clamp(1.35rem, 1.55vw, 2.1rem);
+      clamp(0.35rem, 0.45vw, 0.55rem)
+      calc(var(--scene-width) * 0.06)
+      clamp(0.45rem, 0.55vw, 0.7rem)
+      calc(var(--scene-width) * 0.06);
     gap: clamp(0.55rem, 0.9vw, 1.2rem);
     align-items: center;
   }
 
   .brand {
     z-index: 1;
-    align-self: start;
-    margin-top: clamp(0.15rem, 0.2vw, 0.35rem);
+    align-self: center;
+    margin-top: calc(-0.4rem - 10px);
   }
 
   .logo {
@@ -363,26 +522,41 @@
 
   .desktopNav {
     position: absolute;
-    /* Slight left bias (~26px) clears social icons while staying within ~30px of parchment center. */
-    left: calc(50% - clamp(1.1rem, 1.35vw, 1.75rem));
+    left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     display: flex;
     z-index: 1;
-    font-size: clamp(0.74rem, 0.75vw, 0.98rem);
+    justify-self: center;
+    align-self: center;
+    font-size: inherit;
   }
 
   .desktopActions {
+    grid-column: 3;
     display: flex;
     z-index: 1;
     margin-left: auto;
+    margin-right: 12px;
+    align-self: center;
+    align-items: center;
+    min-height: clamp(2.5rem, 2.6vw, 3.1rem);
     font-size: clamp(0.74rem, 0.75vw, 0.98rem);
   }
 
-  .socialLink,
-  .socialPending {
-    width: clamp(1.8rem, 1.95vw, 2.3rem);
-    height: clamp(1.8rem, 1.95vw, 2.3rem);
+  .social {
+    align-items: center;
+    height: 100%;
+  }
+
+  .socialLink {
+    width: clamp(2.15rem, 2.25vw, 2.65rem);
+    height: clamp(2.15rem, 2.25vw, 2.65rem);
+  }
+
+  .cta {
+    min-height: clamp(2.35rem, 2.45vw, 2.75rem);
+    font-size: clamp(0.78rem, 0.78vw, 0.9rem);
   }
 
   .menuToggle {
@@ -394,15 +568,19 @@
   .inner {
     grid-template-columns: auto minmax(0, 1fr) auto;
     padding:
-      0.3rem
-      clamp(1.8rem, 2.8vw, 3rem)
-      0.4rem
-      clamp(1.2rem, 1.8vw, 1.8rem);
+      0.35rem
+      calc(var(--scene-width) * 0.06)
+      0.45rem
+      calc(var(--scene-width) * 0.06);
   }
 
   .desktopNav {
-    gap: clamp(0.45rem, 0.8vw, 0.9rem);
-    font-size: 0.72rem;
+    gap: clamp(0.5rem, 0.85vw, 1rem);
+  }
+
+  .desktopNav a {
+    font-size: clamp(0.82rem, 1.1vw, 0.95rem);
+    min-height: 2.1rem;
   }
 
   .desktopActions .phone {
@@ -417,13 +595,15 @@
 /* Mid desktop: phone still too wide vs centered nav — hide until 1672. */
 @media (min-width: 1321px) and (max-width: 1671px) {
   .inner {
-    padding-inline: clamp(1.55rem, 2vw, 2.5rem) clamp(2.4rem, 3.2vw, 4.1rem);
+    padding-inline: calc(var(--scene-width) * 0.06);
   }
 
   .desktopNav {
-    left: calc(50% - clamp(1.2rem, 1.4vw, 1.7rem));
-    gap: clamp(0.48rem, 0.7vw, 0.9rem);
-    font-size: clamp(0.72rem, 0.7vw, 0.84rem);
+    gap: clamp(0.55rem, 0.8vw, 1.1rem);
+  }
+
+  .desktopNav a {
+    font-size: clamp(0.88rem, 0.85vw, 1.05rem);
   }
 
   .desktopActions {
@@ -437,12 +617,11 @@
 
 @media (min-width: 1672px) and (max-width: 1919px) {
   .inner {
-    padding-inline: clamp(1.7rem, 2vw, 2.5rem) clamp(2.7rem, 3.3vw, 4.4rem);
+    padding-inline: calc(var(--scene-width) * 0.06);
   }
 
   .desktopNav {
-    left: calc(50% - clamp(1.35rem, 1.45vw, 1.75rem));
-    gap: clamp(0.52rem, 0.8vw, 1rem);
+    gap: clamp(0.7rem, 0.95vw, 1.35rem);
   }
 
   .desktopActions {
@@ -450,9 +629,25 @@
   }
 }
 
+/* Keep the menu centered when the phone joins the desktop actions. */
+@media (min-width: 1672px) and (max-width: 2359px) {
+  .desktopActions {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    column-gap: 0.65rem;
+    row-gap: 0.2rem;
+  }
+  .desktopActions .social { grid-column: 1; grid-row: 1 / 3; }
+  .desktopActions .phone { grid-column: 2; grid-row: 1; justify-self: center; min-height: 1rem; font-size: 0.8rem; }
+  .desktopActions .cta { grid-column: 2; grid-row: 2; min-height: 2.2rem; font-size: 0.78rem; }
+}
+
 @media (max-width: 1100px) {
   .header {
     overflow-x: clip;
+    width: min(100% - (2 * var(--gor-mobile-gutter)), var(--gor-mobile-content-max));
+    margin-inline: auto;
   }
 
   .parchment {
@@ -465,7 +660,7 @@
   }
 
   .inner {
-    width: min(100% - 1rem, var(--gor-content-max));
+    width: 100%;
     padding-block: 0.5rem;
   }
 
@@ -473,23 +668,15 @@
     width: clamp(7.6rem, 42vw, 9.4rem);
   }
 
-  .mobileActions .socialLink {
-    display: flex;
-    width: auto;
-    height: auto;
-    min-height: 2.75rem;
-    gap: 0.6rem;
-    padding: 0.45rem 0.8rem;
-    border: 1px solid var(--gor-parchment-edge);
-    border-radius: 3px;
-    color: var(--gor-ink);
-    font-weight: 600;
+  .mobileSocial {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
   }
 
-  .mobileActions .brandIcon,
-  .socialPendingRow .brandIcon {
-    width: 1.35rem;
-    height: 1.35rem;
+  .mobileSocial .socialLink {
+    width: 2.85rem;
+    height: 2.85rem;
   }
 
   .backdrop,
@@ -570,27 +757,60 @@
 
   .panelTitle {
     font-family: var(--gor-font-display);
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 700;
+    letter-spacing: 0.01em;
   }
 
   .mobileNav {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.15rem;
   }
 
   .mobileNav a {
-    font-size: 1.12rem;
-    padding-block: 0.55rem;
-    border-bottom: 1px solid color-mix(in srgb, var(--gor-parchment-edge) 70%, transparent);
+    font-size: 1.28rem;
+    padding: 0.7rem 0.1rem 0.75rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--gor-parchment-edge) 55%, transparent);
+  }
+
+  .mobileNav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0.35rem;
+    width: 2.4rem;
+    height: 3px;
+    border-radius: 60% 40% 55% 45%;
+    background: color-mix(in srgb, var(--gor-cta) 82%, var(--gor-gold));
+    transform: scaleX(0) skewX(-12deg) rotate(-1deg);
+    transform-origin: left center;
+    transition: transform 320ms cubic-bezier(0.2, 0.75, 0.25, 1);
+    pointer-events: none;
+  }
+
+  .mobileNav a:hover::after,
+  .mobileNav a:focus-visible::after {
+    transform: scaleX(1) skewX(-12deg) rotate(-1deg);
   }
 
   .mobileActions {
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
+    gap: 0.95rem;
     margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px dashed color-mix(in srgb, var(--gor-parchment-edge) 80%, transparent);
+  }
+
+  .mobileActions .phone {
+    align-self: flex-start;
+    font-size: 1.05rem;
+  }
+
+  .mobileActions .cta {
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -613,12 +833,35 @@
   .backdrop,
   .backdropOpen,
   .panel,
-  .panelOpen {
+  .panelOpen,
+  .desktopNav a,
+  .desktopNav a::after,
+  .socialLink,
+  .brandIcon,
+  .phone,
+  .phone::after,
+  .mobileNav a::after {
     transition: none;
   }
 
-  .cta {
+  .cta,
+  .socialLink {
     will-change: auto;
+  }
+
+  .desktopNav a:hover,
+  .desktopNav a:focus-visible,
+  .socialLink:hover,
+  .socialLink:focus-visible,
+  .phone:hover,
+  .phone:focus-visible {
+    transform: none;
+  }
+
+  .socialLink:hover .brandIcon,
+  .socialLink:focus-visible .brandIcon {
+    animation: none;
+    transform: none;
   }
 
   .panelOpen .mobileNav a,

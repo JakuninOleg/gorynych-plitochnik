@@ -10,6 +10,10 @@ import '@fontsource/vollkorn/900.css'
 import { Hero } from '@/components/marketing/hero'
 import { ProcessSection } from '@/components/marketing/process-section'
 import { SiteHeader } from '@/components/marketing/site-header'
+import { SiteFooter } from '@/components/marketing/site-footer'
+import { WorksPreview, CraftFeature, ServicesPreview, MasterSection, ReviewsSection } from '@/components/marketing/story-parts'
+import { TileCalculator } from '@/components/marketing/tile-calculator'
+import { ContactSection } from '@/components/marketing/contact-section'
 import worldStyles from '@/components/marketing/world.module.css'
 import '@/styles/gorynych-tokens.css'
 
@@ -29,7 +33,18 @@ export default function HomePage() {
         <main className={worldStyles.main}>
           <Hero />
           <ProcessSection />
+          <div className={worldStyles.continuation}>
+            <div className={worldStyles.marginArt} aria-hidden="true" />
+            <WorksPreview />
+            <TileCalculator />
+            <CraftFeature />
+            <ServicesPreview />
+            <MasterSection />
+            <ReviewsSection />
+            <ContactSection />
+          </div>
         </main>
+        <SiteFooter />
       </div>
     </div>
   )

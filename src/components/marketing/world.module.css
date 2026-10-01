@@ -11,14 +11,71 @@
 }
 
 .main { position: relative; z-index: 1; }
+.continuation { position: relative; z-index: 2; background:linear-gradient(90deg,#edd9b1,#f8ebd3 16%,#f8ebd3 82%,#ecd4ac); }
+.continuation::before { content:'';position:absolute;inset:0;pointer-events:none;opacity:.5;background:url('/images/paper-texture-v1.webp') center top/700px auto repeat;mix-blend-mode:multiply; }
+.marginArt { display:none; }
 
 @media (min-width: 1101px) {
   .world {
-    height: clamp(740px, 52.5vw, 1344px);
-    max-height: 1344px;
+    --scene-width: clamp(960px, 65vw, 1664px);
+    --scene-side-width: clamp(460px, calc((100vw - var(--scene-width)) / 2 + var(--scene-width) * 0.2), 800px);
+    background-color: var(--gor-parchment);
+    background-image: url('/images/scene-sky-v1.webp');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
   }
 
-  .main { height: 100%; }
+  .world::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 50%;
+    width: var(--scene-width);
+    height: calc(var(--scene-width) * 0.12);
+    transform: translateX(-50%);
+    pointer-events: none;
+    background: url('/images/header-cloud-bridge-v1.webp') center 10% / 100% auto no-repeat;
+    opacity: 0.82;
+    mask-image:
+      linear-gradient(to right, transparent, #000 8%, #000 92%, transparent),
+      linear-gradient(to bottom, transparent, #000 38%, #000 77%, transparent);
+    mask-composite: intersect;
+  }
+
+  .main {
+    width: var(--scene-width);
+    margin-inline: auto;
+    /* About 20px tighter at 2560; scales with the artwork on smaller desktops. */
+    padding-top: calc(var(--scene-width) * 0.0572);
+    padding-bottom: 0;
+  }
+
+  .continuation { margin-top:calc(var(--scene-width) * -0.035);padding-top:calc(var(--scene-width) * .025); }
+  .continuation::after { content:'';position:absolute;inset:0;pointer-events:none;box-shadow:inset 1px 0 #b79a6355,inset -1px 0 #b79a6355; }
+  .marginArt { display:block;position:absolute;inset:0;z-index:-1;pointer-events:none; }
+  .marginArt::before,.marginArt::after { content:'';position:absolute;width:clamp(180px,17vw,430px);height:calc(var(--scene-width) * 1.65);background-size:contain;background-repeat:no-repeat;opacity:.86; }
+  .marginArt::before {right:calc(100% - 3rem);top:10rem;background-image:url('/images/story-margin-left-v1.webp');background-position:left top; }
+  .marginArt::after {left:calc(100% - 3rem);bottom:3rem;background-image:url('/images/story-margin-right-v1.webp');background-position:right bottom; }
+
+  .main::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 2%;
+    left: 1.8%;
+    right: 1.8%;
+    height: calc(var(--scene-width) * 0.8);
+    pointer-events: none;
+    background: url('/images/scene-paper-v1.webp') center / 100% 100% no-repeat;
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(var(--scene-width) * 0.07),
+      #000 calc(var(--scene-width) * 0.115)
+    );
+  }
 
   .desktopBg {
     display: block;
@@ -26,11 +83,27 @@
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    background-image: url("/images/world-desktop-v10.webp");
+  }
+
+  .desktopBg::before,
+  .desktopBg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: var(--scene-side-width);
+    aspect-ratio: 2 / 3;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top;
-    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 94%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 0%, #000 94%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 90%, transparent 100%);
+  }
+
+  .desktopBg::before {
+    left: 0;
+    background-image: url('/images/scene-left-v1.webp');
+  }
+
+  .desktopBg::after {
+    right: 0;
+    background-image: url('/images/scene-right-v1.webp');
   }
 }
